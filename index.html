@@ -80,6 +80,7 @@
       margin: 0 auto;
       background: white;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      min-height: 100vh;
     }
     
     header {
@@ -277,26 +278,32 @@
     }
 
     .references-section {
-      max-width: 900px;
-      margin: 2rem auto;
       background: white;
       padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 2rem;
     }
     
     .ref-item {
       margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .ref-item:last-child {
+      border-bottom: none;
     }
     
     .ref-name {
       font-weight: bold;
       color: #003366;
+      font-size: 1.1rem;
     }
     
     .ref-role {
       font-style: italic;
       color: #666;
+      margin: 0.5rem 0;
     }
 
     .case-link {
@@ -315,24 +322,28 @@
       }
       .container {
         box-shadow: none;
+        max-width: none;
+        margin: 0;
       }
       .page-break {
         border-top: none;
       }
-      .language-selector {
-        display: none;
-      }
+      .language-selector,
       .pdf-download {
         display: none;
       }
     }
     
     @media (max-width: 768px) {
+      .container {
+        margin: 0 10px;
+      }
       .summary-grid {
         grid-template-columns: 1fr;
       }
       .experience-header {
         flex-direction: column;
+        align-items: flex-start;
       }
       .date-range {
         margin-top: 0.5rem;
@@ -346,6 +357,12 @@
         left: 10px;
         padding: 8px 12px;
         font-size: 12px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .content {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -368,7 +385,7 @@
         <p>Oracle PL/SQL Senior Developer | Data Architect | Application DBA</p>
         <p>Former CIO & Digital Payment Pioneer</p>
         <div class="contact-info">
-          📍 Turin, Italy | 📅 Born: 1961 |
+          📍 Turin, Italy | 📅 Born: 27/04/1961 |
           <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a> |
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
@@ -476,7 +493,7 @@
           </div>
         </section>
         
-        <!-- PROFESSIONAL EXPERIENCE -->
+        <!-- PROFESSIONAL EXPERIENCE - FIRST HALF -->
         <section>
           <h2>Professional Experience</h2>
           
@@ -676,6 +693,25 @@
               <span class="tech-label">Technologies:</span> Oracle 11g/12c, PL/SQL, Payment Gateways, QR Systems, Mobile Wallets, PSD2
             </div>
           </div>
+        </section>
+
+         <!-- Selea SNC -->
+          <div class="experience-item">
+            <div class="experience-header">
+              <span class="company-name">Selea SNC - Commercial Accounting Firm</span>
+              <span class="date-range">2008</span>
+            </div>
+            <p class="role">Consultant - Data Architect, Data & Software Analyst</p>
+            <p><strong>Location:</strong> Turin</p>
+            <ul>
+              <li>Financial and economic expert evaluations for courts (C.T.U.)</li>
+              <li>Analysis of economic, banking activities and balance sheets for fraud detection</li>
+              <li>Analysis of bank-client relationships for compound interest rate applications</li>
+            </ul>
+            <div class="technologies">
+              <span class="tech-label">Skills:</span> Financial Analysis, Banking Systems, Legal Expertise
+            </div>
+          </div>
           
           <!-- IBM Italia -->
           <div class="experience-item">
@@ -696,6 +732,44 @@
             </div>
           </div>
           
+          <!-- Sineria Italia -->
+          <div class="experience-item">
+            <div class="experience-header">
+              <span class="company-name">Sineria Italia</span>
+              <span class="date-range">2005 - 2007</span>
+            </div>
+            <p class="role">Consultant - Data Architect, Data & Software Analyst</p>
+            <p><strong>Location:</strong> Turin</p>
+            <p><strong>Key Projects:</strong></p>
+            <ul>
+              <li><strong>FIAT Auto - CBU Web Project:</strong> Team Leader for system analysis and development</li>
+              <li><strong>GTT Group - Towing Management:</strong> Requirements gathering and technical/functional analysis</li>
+              <li><strong>FIAT Auto Poland:</strong> Project Manager for closed orders management system with SAP integration</li>
+              <li>Development of multilingual system (Italian-Polish)</li>
+            </ul>
+            <div class="technologies">
+              <span class="tech-label">Technologies:</span> Oracle, SAP Integration, Project Management, Multilingual Systems
+            </div>
+          </div>
+          
+          <!-- FIAT -->
+          <div class="experience-item">
+            <div class="experience-header">
+              <span class="company-name">FIAT</span>
+              <span class="date-range">2000 - 2005</span>
+            </div>
+            <p class="role">Oracle Developer & DBA</p>
+            <ul>
+              <li>Development of Oracle-based logistics management systems</li>
+              <li>Creation of reporting solutions for production planning</li>
+              <li>Database performance optimization for real-time tracking</li>
+              <li>Implementation of data integration with SAP systems</li>
+            </ul>
+            <div class="technologies">
+              <span class="tech-label">Technologies:</span> Oracle 9i/10g, PL/SQL, Oracle Forms & Reports, Data Integration
+            </div>
+          </div>
+          
           <!-- IBM GV Solution -->
           <div class="experience-item">
             <div class="experience-header">
@@ -708,8 +782,8 @@
             
             <p><strong>• FIAT Management Area:</strong></p>
             <ul>
-              <li><strong>Segreteria Fresco (Project Manager):</strong> Designed and developed personal secretary management system for Dr. Paolo Fresco in Access 2000 (multiuser, multilingual)</li>
-              <li><strong>Segreteria Agnelli (Project Manager):</strong> Created document archival and secretary management system for Avv. Gianni Agnelli in Access 2000</li>
+              <li><strong>Fresco Executive Office (Project Manager):</strong> Designed and developed personal secretary management system for Dr. Paolo Fresco in Access 2000 (multiuser, multilingual)</li>
+              <li><strong>Agnelli Executive Office (Project Manager):</strong> Created document archival and secretary management system for Avv. Gianni Agnelli in Access 2000</li>
             </ul>
             
             <p><strong>• FIAT Auto Finance Area:</strong></p>
@@ -825,7 +899,7 @@
       </div>
     </div>
     
-     <!-- ITALIAN VERSION -->
+     <!-- VERSIONE ITALIANA COMPLETA -->
     <div id="content-it" class="lang-content">
       <header>
         <h1>PAOLO MAGGIONI</h1>
@@ -941,7 +1015,7 @@
         </section>
         
         <!-- ESPERIENZA PROFESSIONALE -->
-        <div class="page-break">
+        <section>
           <h2>Esperienza Professionale</h2>
           
           <!-- ACUS -->
@@ -1141,7 +1215,6 @@
             </div>
           </div>
           
-          <!-- Continue with all other Italian sections and complete the document -->
           <!-- Selea SNC -->
           <div class="experience-item">
             <div class="experience-header">
@@ -1257,92 +1330,96 @@
               <span class="tech-label">Tecnologie:</span> Oracle 9i/10g, Oracle Forms 6i, Oracle Portal, Oracle Discoverer, PL/SQL, Access 2000-2003, Integrazione SAP
             </div>
           </div>
-          
-          <!-- CERTIFICAZIONI -->
-          <section>
-            <h2>Certificazioni & Riconoscimenti</h2>
-            <div class="certifications">
-              <h3>Certificazioni Professionali</h3>
-              <ul>
-                <li><strong>Oracle PL/SQL Certified Developer</strong></li>
-                <li><strong>Oracle Express Foundation Certificate</strong></li>
-                <li><strong>Conformità PSD2 Europea</strong> - Sistemi Mobile Wallet</li>
-              </ul>
-              
-              <h3>Riconoscimenti</h3>
-              <ul>
-                <li><strong>"Italia degli Innovatori"</strong> - Premio per l'Innovazione Digitale della Presidenza del Consiglio</li>
-                <li><strong>"Eccellenza Nazionale"</strong> - Premio Eccellenza Nazionale Movincom</li>
-              </ul>
-              
-              <h3>Formazione</h3>
-              <ul>
-                <li><strong>Diploma Liceo Scientifico</strong> - Liceo Scientifico Piero Gobetti, Torino (1974-1979)</li>
-                <li><strong>Economia e Commercio</strong> - Università di Torino (1980-1982, 2 anni completati)</li>
-              </ul>
-            </div>
-          </section>
-          
-          <!-- DISPONIBILITÀ -->
-          <section>
-            <h2>Disponibilità Attuale</h2>
-            <div class="experience-item">
-              <p><strong>Aperto a:</strong> Opportunità di consulenza Oracle part-time, project-based o remote</p>
-              <p><strong>Particolare interesse in:</strong></p>
-              <ul>
-                <li>Migrazioni complesse di database e progetti di modernizzazione</li>
-                <li>Ottimizzazione prestazioni per sistemi enterprise</li>
-                <li>Soluzioni fintech e pagamenti digitali</li>
-                <li>Architetture dati ad alte prestazioni</li>
-                <li>Consulenza strategica basata su esperienza da CIO</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- RIFERIMENTI PROFESSIONALI (ITALIANO) -->
-          <section class="references-section">
-            <h2>Riferimenti Professionali</h2>
+        </section>
+        
+        <!-- CERTIFICAZIONI -->
+        <section>
+          <h2>Certificazioni & Riconoscimenti</h2>
+          <div class="certifications">
+            <h3>Certificazioni Professionali</h3>
+            <ul>
+              <li><strong>Oracle PL/SQL Certified Developer</strong></li>
+              <li><strong>Oracle Express Foundation Certificate</strong></li>
+              <li><strong>Conformità PSD2 Europea</strong> - Sistemi Mobile Wallet</li>
+            </ul>
             
-            <div class="ref-item">
-              <p class="ref-name">Guido Campra</p>
-              <p class="ref-role">Life & Career Coach – Massoterapista<br>Colleghi nello stesso team a Movincom – 13 aprile 2017</p>
-              <p>"Paolo è un eccellente team leader e un professionista ICT serio. Durante gli anni di collaborazione a Movincom, ha guidato con successo il suo team nella creazione di servizi innovativi, rispondendo con rigore metodologico e capacità di adattamento alle sfide tecnologiche di un mercato in rapida accelerazione. L'affidabilità della piattaforma Movinbox, la crescita dei suoi collaboratori e la solida reputazione presso partner e clienti testimoniano il suo valore."</p>
-            </div>
+            <h3>Riconoscimenti</h3>
+            <ul>
+              <li><strong>"Italia degli Innovatori"</strong> - Premio per l'Innovazione Digitale della Presidenza del Consiglio</li>
+              <li><strong>"Eccellenza Nazionale"</strong> - Premio Eccellenza Nazionale Movincom</li>
+              <li><strong>Member:</strong> European Payments Council (EPC)</li>
+              <li><strong>Member:</strong> Mobey Forum - Mobile Financial Services</li>
+              <li><strong>Member:</strong> Open Mobile Alliance</li>
+            </ul>
+            
+            <h3>Formazione</h3>
+            <ul>
+              <li><strong>Diploma Liceo Scientifico</strong> - Liceo Scientifico Piero Gobetti, Torino (1974-1979)</li>
+              <li><strong>Economia e Commercio</strong> - Università di Torino (1980-1982, 2 anni completati)</li>
+            </ul>
+          </div>
+        </section>
+        
+        <!-- DISPONIBILITÀ -->
+        <section>
+          <h2>Disponibilità Attuale</h2>
+          <div class="experience-item">
+            <p><strong>Aperto a:</strong> Opportunità di consulenza Oracle part-time, project-based o remote</p>
+            <p><strong>Particolare interesse in:</strong></p>
+            <ul>
+              <li>Migrazioni complesse di database e progetti di modernizzazione</li>
+              <li>Ottimizzazione prestazioni per sistemi enterprise</li>
+              <li>Soluzioni fintech e pagamenti digitali</li>
+              <li>Architetture dati ad alte prestazioni</li>
+              <li>Consulenza strategica basata su esperienza da CIO</li>
+            </ul>
+          </div>
+        </section>
 
-            <div class="ref-item">
-              <p class="ref-name">Enrico Mazzarella</p>
-              <p class="ref-role">Hybrid Cloud Practice Manager, Present S.p.A.<br>Colleghi in team diversi – 3 giugno 2013</p>
-              <p>"Ho avuto l'opportunità di lavorare con Paolo e lo raccomando vivamente per la sua competenza tecnica e passione per il lavoro. Quello che ho particolarmente apprezzato lavorando con Paolo è qualcosa non così facile da trovare in una persona tecnica: un buon equilibrio tra passione e desiderio di innovazione e un approccio pragmatico che i grandi progetti richiedono per rispettare le scadenze. Ultimo ma non meno importante, una buona capacità di comunicazione e di lavorare in team."</p>
-            </div>
+        <!-- RIFERIMENTI PROFESSIONALI (ITALIANO) -->
+        <section class="references-section">
+          <h2>Riferimenti Professionali</h2>
+          
+          <div class="ref-item">
+            <p class="ref-name">Guido Campra</p>
+            <p class="ref-role">Life & Career Coach – Massoterapista<br>Colleghi nello stesso team a Movincom – 13 aprile 2017</p>
+            <p>"Paolo è un eccellente team leader e un professionista ICT serio. Durante gli anni di collaborazione a Movincom, ha guidato con successo il suo team nella creazione di servizi innovativi, rispondendo con rigore metodologico e capacità di adattamento alle sfide tecnologiche di un mercato in rapida accelerazione. L'affidabilità della piattaforma Movinbox, la crescita dei suoi collaboratori e la solida reputazione presso partner e clienti testimoniano il suo valore."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Paolo Ciravegna</p>
-              <p class="ref-role">IT Architect, Kyndryl<br>Colleghi nello stesso team – 24 maggio 2013</p>
-              <p>"Paolo è un manager attento ai dettagli che monitora l'equilibrio del suo progetto per essere nei tempi e nei costi."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Enrico Mazzarella</p>
+            <p class="ref-role">Hybrid Cloud Practice Manager, Present S.p.A.<br>Colleghi in team diversi – 3 giugno 2013</p>
+            <p>"Ho avuto l'opportunità di lavorare con Paolo e lo raccomando vivamente per la sua competenza tecnica e passione per il lavoro. Quello che ho particolarmente apprezzato lavorando con Paolo è qualcosa non così facile da trovare in una persona tecnica: un buon equilibrio tra passione e desiderio di innovazione e un approccio pragmatico che i grandi progetti richiedono per rispettare le scadenze. Ultimo ma non meno importante, una buona capacità di comunicazione e di lavorare in team."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Dario Blua</p>
-              <p class="ref-role">Oracle Product Specialist & IT Architect<br>Colleghi in team diversi – 21 maggio 2013</p>
-              <p>"Ho lavorato con Paolo su vari progetti per il gruppo FGA. In ogni situazione ha dimostrato elevate competenze, gestione del team e proattività. È stato un piacere lavorare con lui."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Paolo Ciravegna</p>
+            <p class="ref-role">IT Architect, Kyndryl<br>Colleghi nello stesso team – 24 maggio 2013</p>
+            <p>"Paolo è un manager attento ai dettagli che monitora l'equilibrio del suo progetto per essere nei tempi e nei costi."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Josè Maritano</p>
-              <p class="ref-role">Customer Care Account, NetToHotel S.r.l.<br>Colleghi in team diversi – 21 maggio 2013</p>
-              <p>"Collaborare con Paolo è stato un grande piacere e ho avuto modo di apprezzarne la professionalità. Paolo è sicuramente un professionista che ha basato il suo operato sulla serietà e competenza, anche nei rapporti con i colleghi. Testimonio che quanto affermato mi è stato riportato più volte anche dal Management responsabile del progetto che Paolo seguiva."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Dario Blua</p>
+            <p class="ref-role">Oracle Product Specialist & IT Architect<br>Colleghi in team diversi – 21 maggio 2013</p>
+            <p>"Ho lavorato con Paolo su vari progetti per il gruppo FGA. In ogni situazione ha dimostrato elevate competenze, gestione del team e proattività. È stato un piacere lavorare con lui."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Matteo Miconi</p>
-              <p class="ref-role">Head of Business, Numia SpA<br>Collaborazione tra aziende diverse – 9 aprile 2013</p>
-              <p>"Ho avuto il piacere di collaborare con Paolo per un importante progetto di Mobile Payment. Paolo ha mostrato incredibili capacità tecniche unite a visione commerciale e creativa. È stato un giocatore chiave e lo raccomando assolutamente!!"</p>
-            </div>
-          </section>
-        </div>
+          <div class="ref-item">
+            <p class="ref-name">Josè Maritano</p>
+            <p class="ref-role">Customer Care Account, NetToHotel S.r.l.<br>Colleghi in team diversi – 21 maggio 2013</p>
+            <p>"Collaborare con Paolo è stato un grande piacere e ho avuto modo di apprezzarne la professionalità. Paolo è sicuramente un professionista che ha basato il suo operato sulla serietà e competenza, anche nei rapporti con i colleghi. Testimonio che quanto affermato mi è stato riportato più volte anche dal Management responsabile del progetto che Paolo seguiva."</p>
+          </div>
+
+          <div class="ref-item">
+            <p class="ref-name">Matteo Miconi</p>
+            <p class="ref-role">Head of Business, Numia SpA<br>Collaborazione tra aziende diverse – 9 aprile 2013</p>
+            <p>"Ho avuto il piacere di collaborare con Paolo per un importante progetto di Mobile Payment. Paolo ha mostrato incredibili capacità tecniche unite a visione commerciale e creativa. È stato un giocatore chiave e lo raccomando assolutamente!!"</p>
+          </div>
+        </section>
       </div>
     </div>
-  </div>
+
+
 
   <script>
     function downloadPDF() {
