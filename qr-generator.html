@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Paolo Maggioni CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #003366;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .qr-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 3px dashed #003366;
+        }
+
+        #qr-code {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .url-display {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            word-break: break-all;
+            font-family: monospace;
+            color: #003366;
+            border-left: 4px solid #005599;
+        }
+
+        .buttons {
+            margin: 30px 0;
+        }
+
+        button {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        button:hover {
+            background: #005599;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-link {
+            display: none;
+            margin: 20px 0;
+        }
+
+        .download-link a {
+            color: #005599;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .usage-tips {
+            margin-top: 30px;
+            text-align: left;
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .usage-tips h3 {
+            color: #003366;
+            margin-top: 0;
+        }
+
+        .usage-tips ul {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .size-options {
+            margin: 20px 0;
+        }
+
+        .size-btn {
+            background: #005599;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 14px;
+            min-width: 100px;
+        }
+
+        .size-btn.active {
+            background: #0077be;
+        }
+
+        .preview-info {
+            margin: 15px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            button {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 QR Code Generator</h1>
+        <h2 style="color: #005599; margin-bottom: 30px;">Paolo Maggioni - CV Online</h2>
+        
+        <div class="url-display">
+            <strong>🌐 URL CV:</strong><br>
+            https://pmaggioni.github.io/paolo-maggioni-cv/
+        </div>
+
+        <div class="size-options">
+            <h3 style="color: #003366;">Scegli Dimensione QR:</h3>
+            <button class="size-btn active" onclick="generateQR(200)" data-size="200">Small (200px)</button>
+            <button class="size-btn" onclick="generateQR(300)" data-size="300">Medium (300px)</button>
+            <button class="size-btn" onclick="generateQR(400)" data-size="400">Large (400px)</button>
+            <button class="size-btn" onclick="generateQR(500)" data-size="500">XL (500px)</button>
+        </div>
+
+        <div class="qr-section">
+            <h3 style="color: #003366; margin-top: 0;">📱 Il Tuo QR Code</h3>
+            <div id="qr-code">
+                <!-- QR Code will be generated here -->
+            </div>
+            <div class="preview-info">
+                <span id="current-size">Dimensione: 200x200px</span> | 
+                <span>Formato: PNG</span> | 
+                <span>Qualità: Alta</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="downloadQR()">💾 Download PNG</button>
+            <button onclick="copyURL()">📋 Copia URL</button>
+            <button onclick="generateNewQR()">🔄 Rigenera</button>
+        </div>
+
+        <div class="download-link" id="download-link">
+            <a href="#" download="paolo-maggioni-cv-qr.png" id="download-anchor">
+                ⬇️ Click per scaricare il QR Code
+            </a>
+        </div>
+
+        <div class="usage-tips">
+            <h3>💡 Come Usare il QR Code:</h3>
+            <ul>
+                <li><strong>📇 Business Card:</strong> Stampa sul retro della card</li>
+                <li><strong>📧 Email Signature:</strong> Inserisci come immagine</li>
+                <li><strong>💼 LinkedIn:</strong> Aggiungi al tuo profilo</li>
+                <li><strong>📱 Networking:</strong> Mostra direttamente dal telefono</li>
+                <li><strong>📄 CV Cartaceo:</strong> Stampa in un angolo</li>
+                <li><strong>🎯 Presentazioni:</strong> Includi nelle slide</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #e8f4f8; border-radius: 10px;">
+            <h4 style="color: #003366; margin-top: 0;">✨ Vantaggi del QR Code:</h4>
+            <p style="color: #666; margin: 0;">
+                • <strong>Accesso istantaneo</strong> al CV aggiornato<br>
+                • <strong>Sempre sincronizzato</strong> con le modifiche GitHub<br>
+                • <strong>Professionale</strong> e moderno<br>
+                • <strong>Trackable</strong> - vedi chi visita il CV<br>
+                • <strong>Eco-friendly</strong> - niente stampe obsolete
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const cvURL = 'https://pmaggioni.github.io/paolo-maggioni-cv/';
+        let currentQRSize = 200;
+
+        // Generate QR Code using QR Server API
+        function generateQR(size = 200) {
+            currentQRSize = size;
+            
+            // Update active button
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.size == size) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update size info
+            document.getElementById('current-size').textContent = `Dimensione: ${size}x${size}px`;
+
+            const qrContainer = document.getElementById('qr-code');
+            
+            // Create QR code URL with high quality settings
+            const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(cvURL)}&format=png&ecc=H&margin=10`;
+            
+            // Create image element
+            const img = document.createElement('img');
+            img.src = qrURL;
+            img.alt = 'QR Code for Paolo Maggioni CV';
+            img.style.maxWidth = '100%';
+            img.style.border = '3px solid #003366';
+            img.style.borderRadius = '15px';
+            img.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            img.id = 'qr-image';
+            
+            // Clear previous QR and add new one
+            qrContainer.innerHTML = '';
+            qrContainer.appendChild(img);
+        }
+
+        // Download QR Code
+        async function downloadQR() {
+            const qrImage = document.getElementById('qr-image');
+            if (!qrImage) {
+                alert('Genera prima un QR Code!');
+                return;
+            }
+
+            try {
+                // Create download link
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = currentQRSize;
+                canvas.height = currentQRSize;
+
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                    
+                    // Convert to blob and download
+                    canvas.toBlob(function(blob) {
+                        const url = URL.createObjectURL(blob);
+                        const downloadLink = document.getElementById('download-anchor');
+                        downloadLink.href = url;
+                        downloadLink.download = `paolo-maggioni-cv-qr-${currentQRSize}px.png`;
+                        
+                        // Show download link
+                        document.getElementById('download-link').style.display = 'block';
+                        
+                        // Auto-trigger download
+                        downloadLink.click();
+                        
+                        // Clean up
+                        setTimeout(() => URL.revokeObjectURL(url), 100);
+                    }, 'image/png');
+                };
+                img.src = qrImage.src;
+                
+            } catch (error) {
+                // Fallback: direct download
+                const link = document.createElement('a');
+                link.href = qrImage.src;
+                link.download = `paolo-maggioni-cv-qr-${currentQRSize}px.png`;
+                link.click();
+            }
+        }
+
+        // Copy URL to clipboard
+        async function copyURL() {
+            try {
+                await navigator.clipboard.writeText(cvURL);
+                alert('✅ URL copiato negli appunti!');
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = cvURL;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ URL copiato negli appunti!');
+            }
+        }
+
+        // Generate new QR (refresh)
+        function generateNewQR() {
+            generateQR(currentQRSize);
+            alert('🔄 QR Code rigenerato!');
+        }
+
+        // Generate initial QR code
+        window.onload = function() {
+            generateQR(200);
+        };
+    </script>
+</body>
+</html>
