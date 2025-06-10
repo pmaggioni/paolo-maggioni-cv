@@ -3,14 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               style-src 'self' 'unsafe-inline'; 
-               script-src 'self' 'unsafe-inline'; 
-               img-src 'self' data:; 
-               connect-src 'none'; 
-               object-src 'none'; 
-               frame-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
   <title>Paolo Maggioni | Oracle Senior Consultant</title>
   <style>
     body {
@@ -20,6 +13,35 @@
       background-color: #f5f5f5;
       color: #333;
       line-height: 1.6;
+    }
+    
+    .pdf-download {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .pdf-download:hover {
+      background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      color: white;
+      text-decoration: none;
     }
     
     .language-selector {
@@ -254,7 +276,6 @@
       display: block;
     }
 
-    /* References styling */
     .references-section {
       max-width: 900px;
       margin: 2rem auto;
@@ -278,7 +299,6 @@
       color: #666;
     }
 
-    /* Case history links styling */
     .case-link {
       color: #0077be;
       text-decoration: none;
@@ -302,6 +322,9 @@
       .language-selector {
         display: none;
       }
+      .pdf-download {
+        display: none;
+      }
     }
     
     @media (max-width: 768px) {
@@ -318,10 +341,20 @@
         top: 10px;
         right: 10px;
       }
+      .pdf-download {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="javascript:void(0)" onclick="downloadPDF()" class="pdf-download">
+    📄 Download PDF
+  </a>
+  
   <div class="language-selector">
     <button onclick="switchLanguage('en')" id="btn-en" class="active">English</button>
     <button onclick="switchLanguage('it')" id="btn-it">Italiano</button>
@@ -336,7 +369,7 @@
         <p>Former CIO & Digital Payment Pioneer</p>
         <div class="contact-info">
           📍 Turin, Italy | 📅 Born: 1961 |
-         <a href="mailto:&#112;&#109;&#97;&#103;&#103;&#105;&#111;&#110;&#105;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">📧 Email</a> |
+          <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a> |
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
       </header>
@@ -428,14 +461,14 @@
             </div>
             <p class="role">Lead Database Architect & Migration Specialist</p>
             <p><strong>Client:</strong> Major consulting firm in energy sector</p>
-            <p><strong>Challenge:</strong> Complete autonomous migration of two mission-critical enterprise platforms (EE and NG) from PostgreSQL to Oracle.</p>
+            <p><strong>Challenge:</strong> Complete autonomous migration of two mission-critical enterprise platforms (EE and NG) from PostgreSQL to Oracle, maintaining full operational continuity.</p>
             <p><strong>Achievements:</strong></p>
             <ul>
               <li>Designed and executed complete database porting strategy without external support</li>
               <li>Maintained 100% data integrity throughout migration process</li>
               <li>Achieved zero downtime during transition</li>
               <li>Resolved complex incompatibilities between PostgreSQL and Oracle systems</li>
-              <li>Created custom query for PL/pgSQL to PL/SQL conversion</li>
+              <li>Created custom migration framework for PL/pgSQL to PL/SQL conversion</li>
             </ul>
             <div class="technologies">
               <span class="tech-label">Technologies:</span> Oracle 19c/23c, PostgreSQL 14, PL/SQL, PL/pgSQL, Data Migration Tools, Performance Tuning
@@ -443,8 +476,8 @@
           </div>
         </section>
         
-        <!-- PAGE BREAK FOR DETAILED EXPERIENCE -->
-        <div class="page-break">
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <section>
           <h2>Professional Experience</h2>
           
           <!-- ACUS -->
@@ -458,7 +491,7 @@
             <p><strong>Project:</strong> Enterprise Data Warehouse Migration</p>
             <ul>
               <li>Leading migration of enterprise DWH to Oracle 23c</li>
-              <li>Performance optimization for massive data volumes</li>
+              <li>Performance optimization for massive data volumes (billions of records)</li>
               <li>Implementing advanced partitioning strategies</li>
               <li>Redesigning ETL processes for improved efficiency</li>
             </ul>
@@ -552,7 +585,7 @@
             <p><strong>Location:</strong> Turin</p>
             <ul>
               <li>Taught Oracle PL/SQL courses for European certification</li>
-              <li>Prepared students for certification exams</li>
+              <li>Prepared students for Oracle certification exams</li>
               <li>Developed course materials and practical exercises</li>
             </ul>
             <div class="technologies">
@@ -644,24 +677,6 @@
             </div>
           </div>
           
-          <!-- Selea SNC -->
-          <div class="experience-item">
-            <div class="experience-header">
-              <span class="company-name">Selea SNC - Studio Commercialistico</span>
-              <span class="date-range">2008</span>
-            </div>
-            <p class="role">Consultant - Data Architect, Data and Software Analyst</p>
-            <p><strong>Location:</strong> Turin</p>
-            <ul>
-              <li>Financial and economic expert assessments for court tribunals (C.T.U.)</li>
-              <li>Analysis of economic activities, banking and balance sheets for fraud detection</li>
-              <li>Bank-client relationship analysis for anatocistic interest rate applications</li>
-            </ul>
-            <div class="technologies">
-              <span class="tech-label">Expertise:</span> Financial Analysis, Banking Systems, Legal Expertise
-            </div>
-          </div>
-          
           <!-- IBM Italia -->
           <div class="experience-item">
             <div class="experience-header">
@@ -678,45 +693,6 @@
             </ul>
             <div class="technologies">
               <span class="tech-label">Technologies:</span> Oracle 10g/11g, DWH, ETL, Data Modeling, PL/SQL
-            </div>
-          </div>
-          
-          <!-- Sineria Italia -->
-          <div class="experience-item">
-            <div class="experience-header">
-              <span class="company-name">Sineria Italia</span>
-              <span class="date-range">2005 - 2007</span>
-            </div>
-            <p class="role">Consultant - Data Architect, Data and Software Analyst</p>
-            <p><strong>Location:</strong> Turin</p>
-            <p><strong>Key Projects:</strong></p>
-            <ul>
-              <li><strong>FIAT Auto - CBU Web Project:</strong> Team Leader for system analysis and development</li>
-              <li><strong>GTT Group - Removal Management:</strong> Requirements gathering and technical/functional analysis</li>
-              <li><strong>FIAT Auto Poland:</strong> Project Manager for closed orders management system with SAP integration</li>
-              <li>Multilingual system development (Italian-Polish)</li>
-            </ul>
-            <div class="technologies">
-              <span class="tech-label">Technologies:</span> Oracle, SAP Integration, Project Management, Multilingual Systems
-            </div>
-          </div>
-          
-          <!-- FIAT -->
-          <div class="experience-item">
-            <div class="experience-header">
-              <span class="company-name">FIAT</span>
-              <span class="date-range">2000 - 2005</span>
-            </div>
-            <p class="role">Oracle Developer & DBA</p>
-            <p><strong>Projects:</strong> Automotive Logistics & Supply Chain</p>
-            <ul>
-              <li>Developed Oracle-based logistics management systems</li>
-              <li>Created reporting solutions for production planning</li>
-              <li>Optimized database performance for real-time tracking</li>
-              <li>Implemented data integration with SAP systems</li>
-            </ul>
-            <div class="technologies">
-              <span class="tech-label">Technologies:</span> Oracle 9i/10g, PL/SQL, Oracle Forms & Reports, Data Integration
             </div>
           </div>
           
@@ -760,93 +736,96 @@
               <span class="tech-label">Technologies:</span> Oracle 9i/10g, Oracle Forms 6i, Oracle Portal, Oracle Discoverer, PL/SQL, Access 2000-2003, SAP Integration
             </div>
           </div>
-          
-          <!-- CERTIFICATIONS & RECOGNITION -->
-          <section>
-            <h2>Certifications & Recognition</h2>
-            <div class="certifications">
-              <h3>Professional Certifications</h3>
-              <ul>
-                <li><strong>Oracle PL/SQL Certified Developer</strong></li>
-                <li><strong>Oracle Express Foundation Certificate</strong></li>
-                <li><strong>European PSD2 Compliance</strong> - Mobile Wallet Systems</li>
-              </ul>
-              
-              <h3>Industry Recognition</h3>
-              <ul>
-                <li><strong>"Italia degli Innovatori"</strong> - Prime Minister's Office Award for Digital Innovation</li>
-                <li><strong>"Eccellenza Nazionale"</strong> - Movincom National Excellence Award</li>
-              </ul>
-              
-              <h3>Education</h3>
-              <ul>
-                <li><strong>Scientific High School Diploma</strong> - Liceo Scientifico Piero Gobetti, Turin (1974-1979)</li>
-                <li><strong>Economics and Commerce</strong> - University of Turin (1980-1982, 2 years completed)</li>
-              </ul>
-            </div>
-          </section>
-          
-          <!-- AVAILABILITY -->
-          <section>
-            <h2>Current Availability</h2>
-            <div class="experience-item">
-              <p><strong>Open to:</strong> Part-time, project-based, or remote Oracle consulting opportunities</p>
-              <p><strong>Particular interest in:</strong></p>
-              <ul>
-                <li>Complex database migrations and modernization projects</li>
-                <li>Performance optimization for enterprise systems</li>
-                <li>Fintech and digital payment solutions</li>
-                <li>High-performance data architectures</li>
-                <li>Strategic consulting leveraging CIO experience</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- PROFESSIONAL REFERENCES (ENGLISH) -->
-          <section class="references-section">
-            <h2>Professional References</h2>
+        </section>
+        
+        <!-- CERTIFICATIONS & RECOGNITION -->
+        <section>
+          <h2>Certifications & Recognition</h2>
+          <div class="certifications">
+            <h3>Professional Certifications</h3>
+            <ul>
+              <li><strong>Oracle PL/SQL Certified Developer</strong></li>
+              <li><strong>Oracle Express Foundation Certificate</strong></li>
+              <li><strong>European PSD2 Compliance</strong> - Mobile Wallet Systems</li>
+            </ul>
             
-            <div class="ref-item">
-              <p class="ref-name">Guido Campra</p>
-              <p class="ref-role">Life & Career Coach – Massotherapist<br>Colleagues in the same team at Movincom – April 13, 2017</p>
-              <p>"Paolo is an excellent team leader and a serious ICT professional. During the years we collaborated at Movincom, he successfully led his team in creating innovative services, responding with methodological rigor and adaptive skills to the technological challenges of a rapidly accelerating market. The reliability of the Movinbox platform, the growth of his collaborators, and the solid reputation among partners and clients testify to his value."</p>
-            </div>
+            <h3>Industry Recognition</h3>
+            <ul>
+              <li><strong>"Italia degli Innovatori"</strong> - Prime Minister's Office Award for Digital Innovation</li>
+              <li><strong>"Eccellenza Nazionale"</strong> - Movincom National Excellence Award</li>
+              <li><strong>Member:</strong> European Payments Council (EPC)</li>
+              <li><strong>Member:</strong> Mobey Forum - Mobile Financial Services</li>
+              <li><strong>Member:</strong> Open Mobile Alliance</li>
+            </ul>
+            
+            <h3>Education</h3>
+            <ul>
+              <li><strong>Scientific High School Diploma</strong> - Liceo Scientifico Piero Gobetti, Turin (1974-1979)</li>
+              <li><strong>Economics and Commerce</strong> - University of Turin (1980-1982, 2 years completed)</li>
+            </ul>
+          </div>
+        </section>
+        
+        <!-- AVAILABILITY -->
+        <section>
+          <h2>Current Availability</h2>
+          <div class="experience-item">
+            <p><strong>Open to:</strong> Part-time, project-based, or remote Oracle consulting opportunities</p>
+            <p><strong>Particular interest in:</strong></p>
+            <ul>
+              <li>Complex database migrations and modernization projects</li>
+              <li>Performance optimization for enterprise systems</li>
+              <li>Fintech and digital payment solutions</li>
+              <li>High-performance data architectures</li>
+              <li>Strategic consulting leveraging CIO experience</li>
+            </ul>
+          </div>
+        </section>
 
-            <div class="ref-item">
-              <p class="ref-name">Enrico Mazzarella</p>
-              <p class="ref-role">Hybrid Cloud Practice Manager, Present S.p.A.<br>Colleagues in different teams – June 3, 2013</p>
-              <p>"I have had the opportunity to work with Paolo and I strongly recommend him for his technical competence and passion for his job. What I strongly appreciated working with Paolo was something not so easy to meet in a technical person: a good balance between passion and desire for innovation and a pragmatic approach big projects require to reach deadlines. Last but not least, a good communication skill and capability to work in team."</p>
-            </div>
+        <!-- PROFESSIONAL REFERENCES -->
+        <section class="references-section">
+          <h2>Professional References</h2>
+          
+          <div class="ref-item">
+            <p class="ref-name">Guido Campra</p>
+            <p class="ref-role">Life & Career Coach – Massotherapist<br>Colleagues in the same team at Movincom – April 13, 2017</p>
+            <p>"Paolo is an excellent team leader and a serious ICT professional. During the years we collaborated at Movincom, he successfully led his team in creating innovative services, responding with methodological rigor and adaptive skills to the technological challenges of a rapidly accelerating market. The reliability of the Movinbox platform, the growth of his collaborators, and the solid reputation among partners and clients testify to his value."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Paolo Ciravegna</p>
-              <p class="ref-role">IT Architect, Kyndryl<br>Colleagues in the same team – May 24, 2013</p>
-              <p>"Paolo is a detailed-oriented manager who watches the balance of his project in order to be in time and in cost."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Enrico Mazzarella</p>
+            <p class="ref-role">Hybrid Cloud Practice Manager, Present S.p.A.<br>Colleagues in different teams – June 3, 2013</p>
+            <p>"I have had the opportunity to work with Paolo and I strongly recommend him for his technical competence and passion for his job. What I strongly appreciated working with Paolo was something not so easy to meet in a technical person: a good balance between passion and desire for innovation and a pragmatic approach big projects require to reach deadlines. Last but not least, a good communication skill and capability to work in team."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Dario Blua</p>
-              <p class="ref-role">Oracle Product Specialist & IT Architect<br>Colleagues in different teams – May 21, 2013</p>
-              <p>"I worked with Paolo on various projects for the group FGA. In every situation he showed high skills, team management and proactivity. It was a pleasure to work with him."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Paolo Ciravegna</p>
+            <p class="ref-role">IT Architect, Kyndryl<br>Colleagues in the same team – May 24, 2013</p>
+            <p>"Paolo is a detailed-oriented manager who watches the balance of his project in order to be in time and in cost."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Josè Maritano</p>
-              <p class="ref-role">Customer Care Account, NetToHotel S.r.l.<br>Colleagues in different teams – May 21, 2013</p>
-              <p>"Collaborating with Paolo was a great pleasure and I had the opportunity to appreciate his professionalism. Paolo is certainly a professional who has based his actions on seriousness and competence, including relationships with colleagues. I testify that what I have stated was also reported several times by the Management responsible for the project that Paolo followed."</p>
-            </div>
+          <div class="ref-item">
+            <p class="ref-name">Dario Blua</p>
+            <p class="ref-role">Oracle Product Specialist & IT Architect<br>Colleagues in different teams – May 21, 2013</p>
+            <p>"I worked with Paolo on various projects for the group FGA. In every situation he showed high skills, team management and proactivity. It was a pleasure to work with him."</p>
+          </div>
 
-            <div class="ref-item">
-              <p class="ref-name">Matteo Miconi</p>
-              <p class="ref-role">Head of Business, Numia SpA<br>Collaboration between different companies – April 9, 2013</p>
-              <p>"I had the pleasure to collaborate with Paolo for an important project of Mobile Payment. Paolo showed incredible technical skills mixed with sales and creative vision. He was a key player and I absolutely recommend him!!"</p>
-            </div>
-          </section>
-        </div>
+          <div class="ref-item">
+            <p class="ref-name">Josè Maritano</p>
+            <p class="ref-role">Customer Care Account, NetToHotel S.r.l.<br>Colleagues in different teams – May 21, 2013</p>
+            <p>"Collaborating with Paolo was a great pleasure and I had the opportunity to appreciate his professionalism. Paolo is certainly a professional who has based his actions on seriousness and competence, including relationships with colleagues. I testify that what I have stated was also reported several times by the Management responsible for the project that Paolo followed."</p>
+          </div>
+
+          <div class="ref-item">
+            <p class="ref-name">Matteo Miconi</p>
+            <p class="ref-role">Head of Business, Numia SpA<br>Collaboration between different companies – April 9, 2013</p>
+            <p>"I had the pleasure to collaborate with Paolo for an important project of Mobile Payment. Paolo showed incredible technical skills mixed with sales and creative vision. He was a key player and I absolutely recommend him!!"</p>
+          </div>
+        </section>
       </div>
     </div>
     
-    <!-- ITALIAN VERSION -->
+     <!-- ITALIAN VERSION -->
     <div id="content-it" class="lang-content">
       <header>
         <h1>PAOLO MAGGIONI</h1>
@@ -1366,16 +1345,30 @@
   </div>
 
   <script>
+    function downloadPDF() {
+      const isItalian = document.getElementById('content-it').classList.contains('active');
+      const button = document.querySelector('.pdf-download');
+      const originalText = button.innerHTML;
+      
+      button.innerHTML = '⏳ Generating PDF...';
+      button.style.pointerEvents = 'none';
+      
+      setTimeout(() => {
+        window.print();
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.pointerEvents = 'auto';
+        }, 1000);
+      }, 500);
+    }
+
     function switchLanguage(lang) {
-      // Hide all language contents
       document.querySelectorAll('.lang-content').forEach(content => {
         content.classList.remove('active');
       });
       
-      // Show selected language content
       document.getElementById('content-' + lang).classList.add('active');
       
-      // Update button states
       document.getElementById('btn-en').classList.remove('active');
       document.getElementById('btn-it').classList.remove('active');
       document.getElementById('btn-' + lang).classList.add('active');
