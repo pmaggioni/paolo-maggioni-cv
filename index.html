@@ -262,6 +262,50 @@
       margin-top: 1rem;
     }
     
+    /* AGGIUNTA: Stili per le immagini delle certificazioni */
+    .certification-Images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .cert-image-container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+    
+    .cert-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    
+    .cert-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+    }
+    
+    .cert-description {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+    
+    .cert-description strong {
+      color: #003366;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    
     .page-break {
       page-break-before: always;
       margin-top: 3rem;
@@ -329,7 +373,7 @@
         border-top: none;
       }
       .language-selector,
-      .pdf-download {
+      .pdf-download{
         display: none;
       }
     }
@@ -363,6 +407,13 @@
       }
       .content {
         padding: 1.5rem;
+      }
+      .certification-Images {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .cert-image-container {
+        padding: 15px;
       }
     }
   </style>
@@ -493,7 +544,7 @@
           </div>
         </section>
         
-        <!-- PROFESSIONAL EXPERIENCE - FIRST HALF -->
+        <!-- PROFESSIONAL EXPERIENCE -->
         <section>
           <h2>Professional Experience</h2>
           
@@ -812,7 +863,7 @@
           </div>
         </section>
         
-        <!-- CERTIFICATIONS & RECOGNITION -->
+        <!-- CERTIFICATIONS & RECOGNITION CON IMMAGINI -->
         <section>
           <h2>Certifications & Recognition</h2>
           <div class="certifications">
@@ -834,6 +885,33 @@
               <li><strong>Scientific High School Diploma</strong> - Liceo Scientifico Piero Gobetti, Turin (1974-1979)</li>
               <li><strong>Economics and Commerce</strong> - University of Turin (1980-1982, 2 years completed)</li>
             </ul>
+          </div>
+          
+          <!-- IMMAGINI DELLE CERTIFICAZIONI -->
+          <div class="certification-Images">
+            <div class="cert-image-container">
+              <img src="Images/Certificazione.jpg" alt="Oracle Participation Certificate" loading="lazy">
+              <div class="cert-description">
+                <strong>Oracle Participation Certificate</strong>
+                Completion of Oracle training and certification
+              </div>
+            </div>
+            
+            <div class="cert-image-container">
+              <img src="Images/Oracle_trining.jpg" alt="Oracle Express Foundation Certificate" loading="lazy">
+              <div class="cert-description">
+                <strong>Oracle Express Foundation Certificate</strong>
+                Oracle Approved Training Course Completion
+              </div>
+            </div>
+            
+            <div class="cert-image-container">
+              <img src="Images/Innovatori.jpg" alt="Italia degli Innovatori Award" loading="lazy">
+              <div class="cert-description">
+                <strong>Italia degli Innovatori Award</strong>
+                Prime Minister's Office - National Innovation Award
+              </div>
+            </div>
           </div>
         </section>
         
@@ -896,7 +974,7 @@
       </div>
     </div>
     
-     <!-- VERSIONE ITALIANA COMPLETA -->
+     <!-- ITALIAN VERSION -->
     <div id="content-it" class="lang-content">
       <header>
         <h1>PAOLO MAGGIONI</h1>
@@ -1329,7 +1407,7 @@
           </div>
         </section>
         
-        <!-- CERTIFICAZIONI -->
+        <!-- CERTIFICAZIONI CON IMMAGINI -->
         <section>
           <h2>Certificazioni & Riconoscimenti</h2>
           <div class="certifications">
@@ -1351,6 +1429,33 @@
               <li><strong>Diploma Liceo Scientifico</strong> - Liceo Scientifico Piero Gobetti, Torino (1974-1979)</li>
               <li><strong>Economia e Commercio</strong> - Università di Torino (1980-1982, 2 anni completati)</li>
             </ul>
+          </div>
+          
+          <!-- IMMAGINI DELLE CERTIFICAZIONI ITALIANE -->
+          <div class="certification-Images">
+            <div class="cert-image-container">
+              <img src="Images/Certificazione.jpg" alt="Certificato di Partecipazione Oracle" loading="lazy">
+              <div class="cert-description">
+                <strong>Certificato di Partecipazione Oracle</strong>
+                Completamento formazione e certificazione Oracle
+              </div>
+            </div>
+            
+            <div class="cert-image-container">
+              <img src="Images/Oracle_trining.jpg" alt="Certificato Oracle Express Foundation" loading="lazy">
+              <div class="cert-description">
+                <strong>Certificato Oracle Express Foundation</strong>
+                Completamento Corso di Formazione Approvato Oracle
+              </div>
+            </div>
+            
+            <div class="cert-image-container">
+              <img src="Images/Innovatori.jpg" alt="Premio Italia degli Innovatori" loading="lazy">
+              <div class="cert-description">
+                <strong>Premio Italia degli Innovatori</strong>
+                Presidenza del Consiglio - Premio Nazionale per l'Innovazione
+              </div>
+            </div>
           </div>
         </section>
         
@@ -1412,8 +1517,7 @@
         </section>
       </div>
     </div>
-
-
+  </div>
 
   <script>
     function downloadPDF() {
@@ -1447,7 +1551,3 @@
   </script>
 </body>
 </html>
-
-
-
-
