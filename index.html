@@ -515,15 +515,15 @@
     .lang-content.active { display: block; }
 
     /* ─── PRINT ─── */
- @media print {
-  .toolbar { display: none; }
-  .page-wrap { padding-top: 0; box-shadow: none; }
-  body { background: white; }
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-}
+    @media print {
+      .toolbar { display: none; }
+      .page-wrap { padding-top: 0; box-shadow: none; }
+      body { background: white; }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
 
     /* ─── MOBILE ─── */
     @media (max-width: 700px) {
@@ -543,8 +543,8 @@
     <span class="toolbar-brand">pmaggioni.github.io</span>
     <div class="toolbar-actions">
       <div class="lang-btns">
-        <button onclick="switchLang('en')" id="btn-en" class="active">EN</button>
-        <button onclick="switchLang('it')" id="btn-it">IT</button>
+        <button id="btn-en" class="active">EN</button>
+        <button id="btn-it">IT</button>
       </div>
       <button class="btn-pdf" onclick="window.print()">⬇ PDF</button>
     </div>
@@ -563,7 +563,7 @@
         <div class="header-role">Senior Oracle PL/SQL Developer &amp; Data Architect</div>
         <div class="header-meta">
           <span>📍 Turin, Italy</span>
-          <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#493924282e2e20262720092e24282025672a2624">📧 <span class="__cf_email__" data-cfemail="84f4e9e5e3e3edebeaedc4e3e9e5ede8aae7ebe9">[email&#160;protected]</span></a>
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
       </header>
@@ -575,7 +575,7 @@
           <div class="section-label">Profile</div>
           <h2>Professional Summary</h2>
           <div class="summary-box">
-            <p>Oracle database specialist with <strong>20+ years of enterprise experience</strong> across PL/SQL development, data architecture, and performance optimization. Deep hands-on expertise in complex migrations, DWH engineering, and high-volume system tuning. Available for <strong>remote, technical roles</strong> — no management overhead, just solid database work.</p>
+            <p>Senior Oracle PL/SQL Developer with <strong>20+ years of enterprise experience</strong>, specializing in PL/SQL development, database architecture, and performance optimization on complex, high-volume systems. I have deliberately chosen to remain a hands-on technical professional: this is where I generate real value — in code, architecture, and solving complex problems. My background includes a CIO role and the design of Bemoov, Italy's first mobile payment platform — an experience that gave me a rare business perspective among developers: I understand the context behind a requirement, not just its implementation. Fully operational <strong>full remote</strong>, with a proven track record of autonomous delivery on mission-critical enterprise platforms in the energy &amp; utilities sector.</p>
           </div>
           <div class="kpi-grid">
             <div class="kpi-card">
@@ -882,7 +882,7 @@
           <div class="section-label">Status</div>
           <h2>Current Availability</h2>
           <div class="avail-box">
-            <h3>OPEN TO REMOTE · PART-TIME · PROJECT-BASED</h3>
+            <h3>AVAILABLE FULL REMOTE · FULL-TIME OR ONGOING CONTRACTS</h3>
             <ul>
               <li>Oracle PL/SQL development and stored procedure engineering</li>
               <li>Database migration and porting (Oracle ↔ PostgreSQL)</li>
@@ -939,7 +939,7 @@
         <div class="header-role">Senior Oracle PL/SQL Developer &amp; Data Architect</div>
         <div class="header-meta">
           <span>📍 Torino, Italia</span>
-          <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#d8a8b5b9bfbfb1b7b6b198bfb5b9b1b4f6bbb7b5">📧 <span class="__cf_email__" data-cfemail="d7a7bab6b0b0beb8b9be97b0bab6bebbf9b4b8ba">[email&#160;protected]</span></a>
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
       </header>
@@ -950,7 +950,7 @@
           <div class="section-label">Profilo</div>
           <h2>Profilo Professionale</h2>
           <div class="summary-box">
-            <p>Specialista Oracle con <strong>20+ anni di esperienza enterprise</strong> in sviluppo PL/SQL, architettura di database e ottimizzazione delle prestazioni. Competenza approfondita in migrazioni complesse, DWH engineering e tuning di sistemi ad alto volume. Disponibile per <strong>ruoli tecnici remoti</strong> — nessun overhead manageriale, solo lavoro solido sul database.</p>
+            <p>Sviluppatore Oracle PL/SQL Senior con <strong>20+ anni di esperienza enterprise</strong>, specializzato in sviluppo PL/SQL, architettura di database e ottimizzazione delle prestazioni su sistemi complessi e ad alto volume. Ho scelto deliberatamente di rimanere un professionista tecnico hands-on: è qui che genero valore reale — nel codice, nell'architettura, nella risoluzione di problemi complessi. Il mio percorso include un ruolo da CIO e la progettazione di Bemoov, la prima piattaforma mobile payment italiana — un'esperienza che mi ha dato una visione di business rara tra i developer: capisco il contesto dietro un requisito, non solo l'implementazione. Pienamente operativo in <strong>full remote</strong>, con una comprovata capacità di consegna autonoma su piattaforme enterprise mission-critical nel settore energy &amp; utilities.</p>
           </div>
           <div class="kpi-grid">
             <div class="kpi-card">
@@ -1187,7 +1187,7 @@
           <div class="section-label">Stato</div>
           <h2>Disponibilità Attuale</h2>
           <div class="avail-box">
-            <h3>DISPONIBILE REMOTO · PART-TIME · PROJECT-BASED</h3>
+            <h3>DISPONIBILE FULL REMOTE · FULL-TIME O CONTRATTI CONTINUATIVI</h3>
             <ul>
               <li>Sviluppo Oracle PL/SQL e stored procedure engineering</li>
               <li>Migrazione database e porting (Oracle ↔ PostgreSQL)</li>
@@ -1233,15 +1233,19 @@
 
   </div><!-- /page-wrap -->
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function switchLang(lang) {
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('content-' + lang).classList.add('active');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-it').classList.toggle('active', lang === 'it');
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn-en').addEventListener('click', function() { switchLang('en'); });
+      document.getElementById('btn-it').addEventListener('click', function() { switchLang('it'); });
+    });
   </script>
 
 </body>
 </html>
-
