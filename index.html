@@ -515,11 +515,15 @@
     .lang-content.active { display: block; }
 
     /* ─── PRINT ─── */
-    @media print {
-      .toolbar { display: none; }
-      .page-wrap { padding-top: 0; box-shadow: none; }
-      body { background: white; }
-    }
+ @media print {
+  .toolbar { display: none; }
+  .page-wrap { padding-top: 0; box-shadow: none; }
+  body { background: white; }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
 
     /* ─── MOBILE ─── */
     @media (max-width: 700px) {
@@ -1240,3 +1244,4 @@
 
 </body>
 </html>
+
