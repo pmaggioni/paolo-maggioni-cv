@@ -29,7 +29,6 @@
       line-height: 1.7;
     }
 
-    /* ─── TOP TOOLBAR ─── */
     .toolbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -88,7 +87,6 @@
       color: var(--accent);
     }
 
-    /* ─── LAYOUT ─── */
     .page-wrap {
       max-width: 960px;
       margin: 0 auto;
@@ -98,7 +96,6 @@
       padding-top: 56px;
     }
 
-    /* ─── HEADER ─── */
     header {
       background: var(--navy);
       padding: 3.5rem 3rem 3rem;
@@ -162,12 +159,10 @@
     }
     .header-meta a:hover { color: var(--accent); }
 
-    /* ─── CONTENT ─── */
     .content {
       padding: 2.5rem 3rem;
     }
 
-    /* ─── SECTION ─── */
     section {
       margin-bottom: 3rem;
     }
@@ -190,7 +185,6 @@
       border-bottom: 2px solid var(--navy);
     }
 
-    /* ─── SUMMARY BOX ─── */
     .summary-box {
       background: var(--navy);
       color: #c8d8f0;
@@ -244,7 +238,6 @@
       margin-top: 0.3rem;
     }
 
-    /* ─── SKILLS GRID ─── */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -288,7 +281,112 @@
       font-weight: bold;
     }
 
-    /* ─── EXPERIENCE ITEM ─── */
+    /* ─── DBA DISTINCTION BOX ─── */
+    .dba-box {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 1.8rem 2rem;
+      margin-top: 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dba-box::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .dba-box-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .dba-box-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,169,110,0.25);
+    }
+
+    .dba-profiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .dba-profile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,169,110,0.15);
+      border-radius: 5px;
+      padding: 1rem 1.2rem;
+    }
+
+    .dba-profile.mine {
+      border-color: rgba(200,169,110,0.45);
+      background: rgba(200,169,110,0.07);
+    }
+
+    .dba-profile-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dba-profile.mine .dba-profile-label {
+      color: var(--accent-light);
+    }
+
+    .mine-badge {
+      background: var(--accent);
+      color: var(--navy);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 1px 6px;
+      border-radius: 2px;
+    }
+
+    .dba-profile p {
+      font-size: 0.83rem;
+      color: #8899bb;
+      line-height: 1.6;
+    }
+
+    .dba-profile.mine p {
+      color: #c8d8f0;
+    }
+
+    .dba-note {
+      font-size: 0.84rem;
+      color: #8899bb;
+      border-top: 1px solid rgba(200,169,110,0.15);
+      padding-top: 1rem;
+      font-style: italic;
+    }
+
+    .dba-note strong {
+      color: var(--accent-light);
+      font-style: normal;
+    }
+
+    /* ─── EXPERIENCE ─── */
     .exp-item {
       border: 1px solid var(--border);
       border-radius: 6px;
@@ -298,9 +396,7 @@
       transition: border-color 0.2s;
     }
 
-    .exp-item:hover {
-      border-color: var(--accent);
-    }
+    .exp-item:hover { border-color: var(--accent); }
 
     .exp-item::before {
       content: '';
@@ -339,19 +435,9 @@
       margin-bottom: 0.8rem;
     }
 
-    .exp-item p {
-      font-size: 0.92rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .exp-item ul {
-      padding-left: 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    .exp-item li {
-      margin-bottom: 0.3rem;
-    }
+    .exp-item p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .exp-item ul { padding-left: 1.2rem; font-size: 0.9rem; }
+    .exp-item li { margin-bottom: 0.3rem; }
 
     .tech-tags {
       margin-top: 1rem;
@@ -372,15 +458,12 @@
       letter-spacing: 0.03em;
     }
 
-    /* ─── CURRENT PROJECT (highlighted) ─── */
     .exp-item.featured {
       border-color: var(--accent);
       background: #fffdf7;
     }
 
-    .exp-item.featured::before {
-      background: var(--accent);
-    }
+    .exp-item.featured::before { background: var(--accent); }
 
     .feat-badge {
       display: inline-block;
@@ -395,7 +478,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* ─── CERTIFICATIONS ─── */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -434,12 +516,8 @@
       margin-bottom: 0.2rem;
     }
 
-    .cert-card-body span {
-      font-size: 0.78rem;
-      color: var(--text-light);
-    }
+    .cert-card-body span { font-size: 0.78rem; color: var(--text-light); }
 
-    /* ─── REFERENCES ─── */
     .ref-item {
       padding: 1.2rem 0;
       border-bottom: 1px solid var(--border);
@@ -468,7 +546,6 @@
       line-height: 1.7;
     }
 
-    /* ─── AVAILABILITY ─── */
     .avail-box {
       background: var(--navy);
       color: #c8d8f0;
@@ -484,10 +561,7 @@
       margin-bottom: 0.8rem;
     }
 
-    .avail-box ul {
-      list-style: none;
-      padding: 0;
-    }
+    .avail-box ul { list-style: none; padding: 0; }
 
     .avail-box li {
       padding: 0.3rem 0 0.3rem 1.2rem;
@@ -502,7 +576,6 @@
       color: var(--accent);
     }
 
-    /* ─── CASE LINKS ─── */
     .case-link {
       color: #5588cc;
       font-size: 0.82rem;
@@ -510,11 +583,9 @@
     }
     .case-link:hover { text-decoration: underline; }
 
-    /* ─── LANG TOGGLE ─── */
     .lang-content { display: none; }
     .lang-content.active { display: block; }
 
-    /* ─── PRINT ─── */
     @media print {
       .toolbar { display: none; }
       .page-wrap { padding-top: 0; box-shadow: none; }
@@ -525,12 +596,11 @@
       }
     }
 
-    /* ─── MOBILE ─── */
     @media (max-width: 700px) {
       .content { padding: 1.5rem; }
       header { padding: 2rem 1.5rem; }
       header h1 { font-size: 2rem; }
-      .skills-grid, .kpi-grid, .cert-grid { grid-template-columns: 1fr; }
+      .skills-grid, .kpi-grid, .cert-grid, .dba-profiles { grid-template-columns: 1fr; }
       .toolbar { padding: 10px 14px; }
       .toolbar-brand { display: none; }
     }
@@ -538,7 +608,6 @@
 </head>
 <body>
 
-  <!-- TOOLBAR -->
   <div class="toolbar">
     <span class="toolbar-brand">pmaggioni.github.io</span>
     <div class="toolbar-actions">
@@ -552,9 +621,7 @@
 
   <div class="page-wrap">
 
-    <!-- ══════════════════════════════════════════════ -->
     <!-- ENGLISH VERSION -->
-    <!-- ══════════════════════════════════════════════ -->
     <div id="content-en" class="lang-content active">
 
       <header>
@@ -563,14 +630,13 @@
         <div class="header-role">Senior Oracle PL/SQL Developer &amp; Data Architect</div>
         <div class="header-meta">
           <span>📍 Turin, Italy</span>
-          <a href="/cdn-cgi/l/email-protection#493924282e2e20262720092e24282025672a2624">📧 <span class="__cf_email__" data-cfemail="84f4e9e5e3e3edebeaedc4e3e9e5ede8aae7ebe9">[email&#160;protected]</span></a>
+          <a href="mailto:p.maggioni@gmail.com">📧 p.maggioni@gmail.com</a>
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
       </header>
 
       <div class="content">
 
-        <!-- PROFILE -->
         <section>
           <div class="section-label">Profile</div>
           <h2>Professional Summary</h2>
@@ -593,7 +659,6 @@
           </div>
         </section>
 
-        <!-- SKILLS -->
         <section>
           <div class="section-label">Expertise</div>
           <h2>Technical Skills</h2>
@@ -635,14 +700,30 @@
               </ul>
             </div>
           </div>
+
+          <!-- DBA DISTINCTION BOX -->
+          <div class="dba-box">
+            <div class="dba-box-header">◈ Oracle DBA — An important distinction</div>
+            <div class="dba-profiles">
+              <div class="dba-profile">
+                <div class="dba-profile-label">DBA Sys-Admin</div>
+                <p>DBMS installation &amp; patching, backup &amp; recovery, storage management, tablespace administration, OS-level Oracle infrastructure.</p>
+              </div>
+              <div class="dba-profile mine">
+                <div class="dba-profile-label">DBA Application <span class="mine-badge">MY PROFILE</span></div>
+                <p>PL/SQL development, performance tuning, data modeling &amp; architecture, ETL/DWH design — working inside the database on code and data.</p>
+              </div>
+            </div>
+            <div class="dba-note">
+              The term "Oracle DBA" covers two very different specializations — a distinction that often doesn't emerge in job postings, but is decisive in finding the right candidate. <strong>My profile is application-side.</strong> Those looking for a DBA for infrastructure activities will find different competencies here — and vice versa.
+            </div>
+          </div>
         </section>
 
-        <!-- EXPERIENCE -->
         <section>
           <div class="section-label">Career</div>
           <h2>Professional Experience</h2>
 
-          <!-- ACUS 2023-2025 -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">ACUS S.p.A.</span>
@@ -667,7 +748,6 @@
             </div>
           </div>
 
-          <!-- ACUS May-Nov 2023 -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">ACUS S.p.A.</span>
@@ -685,7 +765,6 @@
             </div>
           </div>
 
-          <!-- AUBAY -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">AUBAY S.p.A. — CNH Industrial</span>
@@ -704,7 +783,6 @@
             </div>
           </div>
 
-          <!-- ACUS 2021-2022 -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">ACUS S.p.A.</span>
@@ -725,7 +803,6 @@
             </div>
           </div>
 
-          <!-- Real-T -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">Real-T</span>
@@ -742,7 +819,6 @@
             </div>
           </div>
 
-          <!-- Forma-re-te -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">Forma-re-te</span>
@@ -759,7 +835,6 @@
             </div>
           </div>
 
-          <!-- Togometrics -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">Togometrics s.r.l.</span>
@@ -776,7 +851,6 @@
             </div>
           </div>
 
-          <!-- Movincom / Bemoov -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">Movincom / Bemoov</span>
@@ -806,7 +880,6 @@
             </div>
           </div>
 
-          <!-- IBM Italia -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">IBM Italia</span>
@@ -822,7 +895,6 @@
             </div>
           </div>
 
-          <!-- FIAT / IBM GV 2000-2005 -->
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">FIAT Group &amp; IBM GV Solution</span>
@@ -842,7 +914,6 @@
 
         </section>
 
-        <!-- CERTIFICATIONS -->
         <section>
           <div class="section-label">Credentials</div>
           <h2>Certifications &amp; Recognition</h2>
@@ -877,7 +948,6 @@
           </div>
         </section>
 
-        <!-- AVAILABILITY -->
         <section>
           <div class="section-label">Status</div>
           <h2>Current Availability</h2>
@@ -893,7 +963,6 @@
           </div>
         </section>
 
-        <!-- REFERENCES -->
         <section>
           <div class="section-label">References</div>
           <h2>Professional References</h2>
@@ -928,9 +997,7 @@
     </div><!-- /content-en -->
 
 
-    <!-- ══════════════════════════════════════════════ -->
     <!-- VERSIONE ITALIANA -->
-    <!-- ══════════════════════════════════════════════ -->
     <div id="content-it" class="lang-content">
 
       <header>
@@ -939,7 +1006,7 @@
         <div class="header-role">Senior Oracle PL/SQL Developer &amp; Data Architect</div>
         <div class="header-meta">
           <span>📍 Torino, Italia</span>
-          <a href="/cdn-cgi/l/email-protection#d8a8b5b9bfbfb1b7b6b198bfb5b9b1b4f6bbb7b5">📧 <span class="__cf_email__" data-cfemail="d7a7bab6b0b0beb8b9be97b0bab6bebbf9b4b8ba">[email&#160;protected]</span></a>
+          <a href="mailto:p.maggioni@gmail.com">📧 p.maggioni@gmail.com</a>
           <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
         </div>
       </header>
@@ -1007,6 +1074,24 @@
                 <li>Integrazione SAP</li>
                 <li>Inglese B1/B2 · Francese A1/A2</li>
               </ul>
+            </div>
+          </div>
+
+          <!-- DBA DISTINCTION BOX IT -->
+          <div class="dba-box">
+            <div class="dba-box-header">◈ Oracle DBA — Una distinzione importante</div>
+            <div class="dba-profiles">
+              <div class="dba-profile">
+                <div class="dba-profile-label">DBA Sistemistico</div>
+                <p>Installazione &amp; patching DBMS, backup &amp; recovery, gestione storage, tablespace, amministrazione infrastruttura Oracle a livello di sistema operativo.</p>
+              </div>
+              <div class="dba-profile mine">
+                <div class="dba-profile-label">DBA Applicativo <span class="mine-badge">IL MIO PROFILO</span></div>
+                <p>Sviluppo PL/SQL, performance tuning, modellazione dati &amp; architettura, ETL/DWH — lavoro dentro il database su codice e dati.</p>
+              </div>
+            </div>
+            <div class="dba-note">
+              Il termine "DBA Oracle" racchiude due specializzazioni molto diverse — una distinzione che spesso non emerge nei job posting, ma che è determinante per trovare il candidato giusto. <strong>Il mio profilo è applicativo.</strong> Chi cerca un DBA per attività infrastrutturali troverà competenze diverse — e viceversa.
             </div>
           </div>
         </section>
@@ -1233,7 +1318,7 @@
 
   </div><!-- /page-wrap -->
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function switchLang(lang) {
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
       document.getElementById('content-' + lang).classList.add('active');
