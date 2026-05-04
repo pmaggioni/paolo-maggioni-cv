@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+  <title>Paolo Maggioni | Senior Oracle PL/SQL Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --blue: #1a3a6b;
+      --accent: #c8a96e;
+      --accent-light: #e8c98e;
+      --text: #2c3e50;
+      --text-light: #5a6a7a;
+      --bg: #f7f8fa;
+      --white: #ffffff;
+      --border: #dde3ec;
+      --code-bg: #eef2f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200,169,110,0.3);
+    }
+
+    .toolbar-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-pdf {
+      background: var(--accent);
+      color: var(--navy);
+      border: none;
+      padding: 7px 16px;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+    .btn-pdf:hover { background: var(--accent-light); }
+
+    .lang-btns button {
+      background: transparent;
+      border: 1px solid rgba(200,169,110,0.4);
+      color: #aab;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btns button.active,
+    .lang-btns button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+      min-height: 100vh;
+      padding-top: 56px;
+    }
+
+    header {
+      background: var(--navy);
+      padding: 3.5rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+    }
+
+    .header-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      font-size: 2.8rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    .header-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.88rem;
+      color: #8899bb;
+    }
+
+    .header-meta a {
+      color: #8899bb;
+      text-decoration: none;
+    }
+    .header-meta a:hover { color: var(--accent); }
+
+    .content {
+      padding: 2.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .summary-box {
+      background: var(--navy);
+      color: #c8d8f0;
+      padding: 2rem;
+      border-radius: 6px;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-box::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+    }
+
+    .summary-box strong { color: var(--accent-light); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .skill-block h4 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-block ul { list-style: none; padding: 0; }
+
+    .skill-block li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.2rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .skill-block li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* ─── DBA DISTINCTION BOX ─── */
+    .dba-box {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 1.8rem 2rem;
+      margin-top: 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dba-box::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .dba-box-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .dba-box-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,169,110,0.25);
+    }
+
+    .dba-profiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .dba-profile {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,169,110,0.15);
+      border-radius: 5px;
+      padding: 1rem 1.2rem;
+    }
+
+    .dba-profile.mine {
+      border-color: rgba(200,169,110,0.45);
+      background: rgba(200,169,110,0.07);
+    }
+
+    .dba-profile-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dba-profile.mine .dba-profile-label { color: var(--accent-light); }
+
+    .mine-badge {
+      background: var(--accent);
+      color: var(--navy);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 1px 6px;
+      border-radius: 2px;
+    }
+
+    .dba-profile p {
+      font-size: 0.83rem;
+      color: #8899bb;
+      line-height: 1.6;
+    }
+
+    .dba-profile.mine p { color: #c8d8f0; }
+
+    .dba-note {
+      font-size: 0.84rem;
+      color: #8899bb;
+      border-top: 1px solid rgba(200,169,110,0.15);
+      padding-top: 1rem;
+      font-style: italic;
+    }
+
+    .dba-note strong {
+      color: var(--accent-light);
+      font-style: normal;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .exp-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.6rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .exp-item:hover { border-color: var(--accent); }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--blue);
+      border-radius: 3px 0 0 3px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--navy);
+    }
+
+    .exp-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .exp-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-item p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .exp-item ul { padding-left: 1.2rem; font-size: 0.9rem; }
+    .exp-item li { margin-bottom: 0.3rem; }
+
+    .tech-tags {
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-tag {
+      background: var(--navy);
+      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .avail-box {
+      background: var(--navy);
+      color: #c8d8f0;
+      border-radius: 6px;
+      padding: 1.8rem 2rem;
+    }
+
+    .avail-box h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .avail-box ul { list-style: none; padding: 0; }
+
+    .avail-box li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+      font-size: 0.92rem;
+    }
+
+    .avail-box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .ref-item {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ref-item:last-child { border-bottom: none; }
+
+    .ref-name {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .ref-title {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .ref-item blockquote {
+      font-size: 0.88rem;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      line-height: 1.7;
+    }
+
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    @media print {
+      .toolbar { display: none; }
+      .page-wrap { padding-top: 0; box-shadow: none; }
+      body { background: white; }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .content { padding: 1.5rem; }
+      header { padding: 2rem 1.5rem; }
+      header h1 { font-size: 2rem; }
+      .skills-grid, .dba-profiles { grid-template-columns: 1fr; }
+      .toolbar { padding: 10px 14px; }
+      .toolbar-brand { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <span class="toolbar-brand">pmaggioni.github.io</span>
+    <div class="toolbar-actions">
+      <div class="lang-btns">
+        <button id="btn-en" class="active">EN</button>
+        <button id="btn-it">IT</button>
+      </div>
+      <button class="btn-pdf" onclick="window.print()">⬇ PDF</button>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- ENGLISH VERSION -->
+    <div id="content-en" class="lang-content active">
+
+      <header>
+        <div class="header-tag">Oracle PL/SQL · Performance Tuning · Remote</div>
+        <h1>Paolo Maggioni</h1>
+        <div class="header-role">Senior Oracle PL/SQL Developer</div>
+        <div class="header-meta">
+          <span>📍 Turin, Italy</span>
+          <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
+        </div>
+      </header>
+
+      <div class="content">
+
+        <section>
+          <div class="section-label">Profile</div>
+          <h2>Professional Summary</h2>
+          <div class="summary-box">
+            <p>Senior Oracle PL/SQL Developer with <strong>20+ years of hands-on experience</strong> on enterprise systems. Specialized in PL/SQL development, performance tuning, and application support on existing Oracle platforms. I work directly on code and data — procedures, packages, query optimization, ETL flows — with a practical approach focused on delivery and system stability. Fully operational <strong>full remote</strong>, experienced in energy &amp; utilities, finance, logistics, and public administration sectors. Ready to integrate into existing teams and projects from day one.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Expertise</div>
+          <h2>Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-block">
+              <h4>Database Platforms</h4>
+              <ul>
+                <li>Oracle 9i, 10g, 11g, 12c, 19c, 21c, 23c</li>
+                <li>PostgreSQL (advanced)</li>
+                <li>PL/SQL &amp; PL/pgSQL</li>
+                <li>SQL Developer, TOAD</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Core Skills</h4>
+              <ul>
+                <li>PL/SQL Development (procedures, packages, triggers)</li>
+                <li>Performance Tuning &amp; Query Optimization</li>
+                <li>Application support on existing Oracle systems</li>
+                <li>ETL / DWH development and maintenance</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Domain Knowledge</h4>
+              <ul>
+                <li>Energy &amp; Gas Utility Systems</li>
+                <li>Financial &amp; Payment Systems</li>
+                <li>Logistics &amp; Supply Chain</li>
+                <li>Public Administration</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Tools &amp; Other</h4>
+              <ul>
+                <li>Oracle Forms &amp; Reports</li>
+                <li>Oracle Portal, Discoverer</li>
+                <li>SAP Integration</li>
+                <li>English B1/B2 · French A1/A2</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DBA DISTINCTION BOX -->
+          <div class="dba-box">
+            <div class="dba-box-header">◈ Oracle DBA — An important distinction</div>
+            <div class="dba-profiles">
+              <div class="dba-profile">
+                <div class="dba-profile-label">DBA Sys-Admin</div>
+                <p>DBMS installation &amp; patching, backup &amp; recovery, storage management, tablespace administration, OS-level Oracle infrastructure.</p>
+              </div>
+              <div class="dba-profile mine">
+                <div class="dba-profile-label">DBA Application <span class="mine-badge">MY PROFILE</span></div>
+                <p>PL/SQL development, performance tuning, data modeling &amp; architecture, ETL/DWH — working inside the database on code and data.</p>
+              </div>
+            </div>
+            <div class="dba-note">
+              The term "Oracle DBA" covers two very different specializations — a distinction that often doesn't emerge in job postings, but is decisive in finding the right candidate. <strong>My profile is application-side.</strong> Those looking for a DBA for infrastructure activities will find different competencies here — and vice versa.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Career</div>
+          <h2>Professional Experience</h2>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">ACUS S.p.A.</span>
+              <span class="exp-date">2021 — Jun 2025</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer — Application DBA</div>
+            <p><strong>Client:</strong> Major Energy Sector Companies</p>
+            <ul>
+              <li>PL/SQL development and maintenance on energy utility platforms (gas &amp; electric)</li>
+              <li>Performance tuning on high-volume data flows</li>
+              <li>ETL development and optimization for DWH systems</li>
+              <li>Database migration support: Oracle ↔ PostgreSQL porting</li>
+              <li>Application support and incident resolution on production systems</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 12c/19c/23c</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">ETL</span>
+              <span class="tech-tag">DWH</span>
+              <span class="tech-tag">Performance Tuning</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">AUBAY S.p.A. — CNH Industrial</span>
+              <span class="exp-date">Sep 2022 — Apr 2023</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer &amp; Forms Developer</div>
+            <ul>
+              <li>PL/SQL development and maintenance on logistics management applications</li>
+              <li>Oracle Forms maintenance and enhancement</li>
+              <li>Supply chain procedure optimization</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle PL/SQL</span>
+              <span class="tech-tag">Oracle Forms</span>
+              <span class="tech-tag">Logistics</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Movincom / Bemoov</span>
+              <span class="exp-date">2008 — 2018</span>
+            </div>
+            <div class="exp-role">Lead Oracle PL/SQL Developer &amp; Technical Lead</div>
+            <p>Oracle backend development for Italy's first mobile payment platform — millions of monthly transactions.</p>
+            <ul>
+              <li>PL/SQL development: procedures, packages, triggers on Oracle 11g/12c</li>
+              <li>Oracle Forms/Reports development (100+ screens)</li>
+              <li>PSD1/PSD2 compliance implementation</li>
+              <li>Payment integrations: Trenitalia, Tamoil, RadioTaxi Turin</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 11g/12c</span>
+              <span class="tech-tag">Oracle Forms/Reports</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">PSD2</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">IBM Italia</span>
+              <span class="exp-date">2005 — 2008</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer</div>
+            <p>Oracle development for government agencies and financial sector — DWH, ETL, performance tuning.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 10g/11g</span>
+              <span class="tech-tag">DWH</span>
+              <span class="tech-tag">ETL</span>
+              <span class="tech-tag">PL/SQL</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">FIAT Group &amp; IBM GV Solution</span>
+              <span class="exp-date">2000 — 2005</span>
+            </div>
+            <div class="exp-role">Oracle PL/SQL Developer &amp; Application DBA</div>
+            <p>PL/SQL development and application DBA across multiple FIAT divisions — logistics, finance, warranty, supplier management. Oracle Forms/Reports/Portal, SAP integration.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 9i/10g</span>
+              <span class="tech-tag">Oracle Forms 6i</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">SAP Integration</span>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <div class="section-label">Credentials</div>
+          <h2>Certifications</h2>
+          <ul style="list-style:none; padding:0; font-size:0.92rem;">
+            <li style="padding:0.3rem 0;">✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
+            <li style="padding:0.3rem 0;">✦ <strong>Oracle Express Foundation Certificate</strong></li>
+            <li style="padding:0.3rem 0;">✦ <strong>European PSD2 Compliance</strong> — Mobile Wallet Systems</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-label">Status</div>
+          <h2>Current Availability</h2>
+          <div class="avail-box">
+            <h3>AVAILABLE FULL REMOTE · FULL-TIME OR ONGOING CONTRACTS</h3>
+            <ul>
+              <li>Oracle PL/SQL development — procedures, packages, triggers</li>
+              <li>Performance tuning and query optimization on existing systems</li>
+              <li>Application DBA support (energy, finance, logistics)</li>
+              <li>ETL / DWH development and maintenance</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">References</div>
+          <h2>Professional References</h2>
+
+          <div class="ref-item">
+            <div class="ref-name">Enrico Mazzarella</div>
+            <div class="ref-title">Hybrid Cloud Practice Manager, Present S.p.A. — June 2013</div>
+            <blockquote>"What I strongly appreciated working with Paolo was something not so easy to meet in a technical person: a good balance between passion and desire for innovation and a pragmatic approach big projects require to reach deadlines."</blockquote>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-name">Dario Blua</div>
+            <div class="ref-title">Oracle Product Specialist &amp; IT Architect — May 2013</div>
+            <blockquote>"In every situation he showed high skills, team management and proactivity. It was a pleasure to work with him."</blockquote>
+          </div>
+
+        </section>
+
+      </div>
+    </div><!-- /content-en -->
+
+
+    <!-- VERSIONE ITALIANA -->
+    <div id="content-it" class="lang-content">
+
+      <header>
+        <div class="header-tag">Oracle PL/SQL · Performance Tuning · Remoto</div>
+        <h1>Paolo Maggioni</h1>
+        <div class="header-role">Senior Oracle PL/SQL Developer</div>
+        <div class="header-meta">
+          <span>📍 Torino, Italia</span>
+          <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
+        </div>
+      </header>
+
+      <div class="content">
+
+        <section>
+          <div class="section-label">Profilo</div>
+          <h2>Profilo Professionale</h2>
+          <div class="summary-box">
+            <p>Senior Oracle PL/SQL Developer con <strong>20+ anni di esperienza hands-on</strong> su sistemi enterprise. Specializzato in sviluppo PL/SQL, performance tuning e supporto applicativo su piattaforme Oracle esistenti. Lavoro direttamente su codice e dati — procedure, package, ottimizzazione query, flussi ETL — con un approccio pratico orientato alla consegna e alla stabilità dei sistemi. Pienamente operativo <strong>full remote</strong>, con esperienza consolidata nei settori energy &amp; utilities, finance, logistica e pubblica amministrazione. Pronto a integrarmi in team e progetti esistenti dal primo giorno.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Competenze</div>
+          <h2>Competenze Tecniche</h2>
+          <div class="skills-grid">
+            <div class="skill-block">
+              <h4>Piattaforme Database</h4>
+              <ul>
+                <li>Oracle 9i, 10g, 11g, 12c, 19c, 21c, 23c</li>
+                <li>PostgreSQL (avanzato)</li>
+                <li>PL/SQL &amp; PL/pgSQL</li>
+                <li>SQL Developer, TOAD</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Competenze Core</h4>
+              <ul>
+                <li>Sviluppo PL/SQL (procedure, package, trigger)</li>
+                <li>Performance Tuning &amp; ottimizzazione query</li>
+                <li>Supporto applicativo su sistemi Oracle esistenti</li>
+                <li>Sviluppo e manutenzione ETL / DWH</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Settori di Competenza</h4>
+              <ul>
+                <li>Utility Energia &amp; Gas</li>
+                <li>Sistemi Finanziari &amp; Pagamenti</li>
+                <li>Logistica &amp; Supply Chain</li>
+                <li>Pubblica Amministrazione</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Strumenti &amp; Altro</h4>
+              <ul>
+                <li>Oracle Forms &amp; Reports</li>
+                <li>Oracle Portal, Discoverer</li>
+                <li>Integrazione SAP</li>
+                <li>Inglese B1/B2 · Francese A1/A2</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DBA DISTINCTION BOX IT -->
+          <div class="dba-box">
+            <div class="dba-box-header">◈ Oracle DBA — Una distinzione importante</div>
+            <div class="dba-profiles">
+              <div class="dba-profile">
+                <div class="dba-profile-label">DBA Sistemistico</div>
+                <p>Installazione &amp; patching DBMS, backup &amp; recovery, gestione storage, tablespace, amministrazione infrastruttura Oracle a livello di sistema operativo.</p>
+              </div>
+              <div class="dba-profile mine">
+                <div class="dba-profile-label">DBA Applicativo <span class="mine-badge">IL MIO PROFILO</span></div>
+                <p>Sviluppo PL/SQL, performance tuning, modellazione dati &amp; architettura, ETL/DWH — lavoro dentro il database su codice e dati.</p>
+              </div>
+            </div>
+            <div class="dba-note">
+              Il termine "DBA Oracle" racchiude due specializzazioni molto diverse — una distinzione che spesso non emerge nei job posting, ma che è determinante per trovare il candidato giusto. <strong>Il mio profilo è applicativo.</strong> Chi cerca un DBA per attività infrastrutturali troverà competenze diverse — e viceversa.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Carriera</div>
+          <h2>Esperienza Professionale</h2>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">ACUS S.p.A.</span>
+              <span class="exp-date">2021 — Giu 2025</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer — Application DBA</div>
+            <p><strong>Clienti:</strong> Aziende del Settore Energetico</p>
+            <ul>
+              <li>Sviluppo e manutenzione PL/SQL su piattaforme utility energia e gas</li>
+              <li>Performance tuning su flussi dati ad alto volume</li>
+              <li>Sviluppo e ottimizzazione ETL per sistemi DWH</li>
+              <li>Supporto migrazione database: porting Oracle ↔ PostgreSQL</li>
+              <li>Supporto applicativo e risoluzione incident su sistemi in produzione</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 12c/19c/23c</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">ETL</span>
+              <span class="tech-tag">DWH</span>
+              <span class="tech-tag">Performance Tuning</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">AUBAY S.p.A. — CNH Industrial</span>
+              <span class="exp-date">Set 2022 — Apr 2023</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer &amp; Forms Developer</div>
+            <ul>
+              <li>Sviluppo e manutenzione PL/SQL su applicazioni gestione logistica</li>
+              <li>Manutenzione ed evoluzione Oracle Forms</li>
+              <li>Ottimizzazione procedure supply chain</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle PL/SQL</span>
+              <span class="tech-tag">Oracle Forms</span>
+              <span class="tech-tag">Logistica</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Movincom / Bemoov</span>
+              <span class="exp-date">2008 — 2018</span>
+            </div>
+            <div class="exp-role">Lead Oracle PL/SQL Developer &amp; Technical Lead</div>
+            <p>Sviluppo backend Oracle per la prima piattaforma mobile payment italiana — milioni di transazioni mensili.</p>
+            <ul>
+              <li>Sviluppo PL/SQL: procedure, package, trigger su Oracle 11g/12c</li>
+              <li>Sviluppo Oracle Forms/Reports (100+ schermate)</li>
+              <li>Implementazione conformità PSD1/PSD2</li>
+              <li>Integrazioni pagamenti: Trenitalia, Tamoil, RadioTaxi Torino</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 11g/12c</span>
+              <span class="tech-tag">Oracle Forms/Reports</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">PSD2</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">IBM Italia</span>
+              <span class="exp-date">2005 — 2008</span>
+            </div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer</div>
+            <p>Sviluppo Oracle per PA e settore finanziario — DWH, ETL, performance tuning.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 10g/11g</span>
+              <span class="tech-tag">DWH</span>
+              <span class="tech-tag">ETL</span>
+              <span class="tech-tag">PL/SQL</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Gruppo FIAT &amp; IBM GV Solution</span>
+              <span class="exp-date">2000 — 2005</span>
+            </div>
+            <div class="exp-role">Oracle PL/SQL Developer &amp; Application DBA</div>
+            <p>Sviluppo PL/SQL e DBA applicativo su più divisioni FIAT — logistica, finance, warranty, gestione fornitori. Oracle Forms/Reports/Portal, integrazione SAP.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 9i/10g</span>
+              <span class="tech-tag">Oracle Forms 6i</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">SAP Integration</span>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <div class="section-label">Credenziali</div>
+          <h2>Certificazioni</h2>
+          <ul style="list-style:none; padding:0; font-size:0.92rem;">
+            <li style="padding:0.3rem 0;">✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
+            <li style="padding:0.3rem 0;">✦ <strong>Oracle Express Foundation Certificate</strong></li>
+            <li style="padding:0.3rem 0;">✦ <strong>Conformità PSD2 Europea</strong> — Sistemi Mobile Wallet</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-label">Stato</div>
+          <h2>Disponibilità Attuale</h2>
+          <div class="avail-box">
+            <h3>DISPONIBILE FULL REMOTE · FULL-TIME O CONTRATTI CONTINUATIVI</h3>
+            <ul>
+              <li>Sviluppo Oracle PL/SQL — procedure, package, trigger</li>
+              <li>Performance tuning e ottimizzazione query su sistemi esistenti</li>
+              <li>Supporto Application DBA (energy, finance, logistica)</li>
+              <li>Sviluppo e manutenzione ETL / DWH</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Referenze</div>
+          <h2>Riferimenti Professionali</h2>
+
+          <div class="ref-item">
+            <div class="ref-name">Enrico Mazzarella</div>
+            <div class="ref-title">Hybrid Cloud Practice Manager, Present S.p.A. — Giugno 2013</div>
+            <blockquote>"Quello che ho particolarmente apprezzato lavorando con Paolo è qualcosa non così facile da trovare in una persona tecnica: un buon equilibrio tra passione e desiderio di innovazione e un approccio pragmatico che i grandi progetti richiedono per rispettare le scadenze."</blockquote>
+          </div>
+
+          <div class="ref-item">
+            <div class="ref-name">Dario Blua</div>
+            <div class="ref-title">Oracle Product Specialist &amp; IT Architect — Maggio 2013</div>
+            <blockquote>"In ogni situazione ha dimostrato elevate competenze, gestione del team e proattività. È stato un piacere lavorare con lui."</blockquote>
+          </div>
+
+        </section>
+
+      </div>
+    </div><!-- /content-it -->
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('content-' + lang).classList.add('active');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btn-en').addEventListener('click', function() { switchLang('en'); });
+      document.getElementById('btn-it').addEventListener('click', function() { switchLang('it'); });
+    });
+  </script>
+
+</body>
+</html>
+
