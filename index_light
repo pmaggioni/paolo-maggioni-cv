@@ -1,10 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+	<meta name="description" content="Senior Oracle Architect & PL/SQL Developer with 20+ years experience. Specializing in database architecture, performance tuning, and enterprise systems.">
+	<meta name="keywords" content="Oracle, PL/SQL, Database Architecture, DBA, Performance Tuning">
+	<meta name="author" content="Paolo Maggioni">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
-  <title>Paolo Maggioni | Senior Oracle PL/SQL Developer</title>
+  <title>Paolo Maggioni | Senior Oracle Architect & PL/SQL Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -207,6 +211,15 @@
 
     .summary-box strong { color: var(--accent-light); }
 
+    .summary-box p { margin-bottom: 1rem; }
+
+    .summary-box ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    .summary-box li { margin-bottom: 0.4rem; }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -348,6 +361,32 @@
       font-style: normal;
     }
 
+    /* ─── ACHIEVEMENTS ─── */
+    .achievement-box {
+      background: linear-gradient(135deg, rgba(200,169,110,0.1) 0%, rgba(200,169,110,0.05) 100%);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .achievement-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-box h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-box p {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
     /* ─── EXPERIENCE ─── */
     .exp-item {
       border: 1px solid var(--border);
@@ -367,6 +406,10 @@
       width: 3px;
       background: var(--blue);
       border-radius: 3px 0 0 3px;
+    }
+
+    .exp-item.featured::before {
+      background: var(--accent);
     }
 
     .exp-header {
@@ -401,6 +444,51 @@
     .exp-item ul { padding-left: 1.2rem; font-size: 0.9rem; }
     .exp-item li { margin-bottom: 0.3rem; }
 
+    .exp-highlight {
+      background: rgba(200,169,110,0.08);
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      margin: 0.8rem 0;
+      border-left: 3px solid var(--accent);
+    }
+
+    .exp-highlight strong {
+      color: var(--navy);
+    }
+
+    .market-firsts {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .market-firsts strong {
+	  color: var(--navy);
+	  display: block;
+	  margin-bottom: 0.5rem;
+   }
+
+    .market-firsts ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .market-firsts li {
+      font-size: 0.9rem;
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+
+    .market-firsts li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     .tech-tags {
       margin-top: 1rem;
       padding-top: 0.8rem;
@@ -432,13 +520,41 @@
       font-size: 0.85rem;
       color: var(--accent);
       letter-spacing: 0.1em;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .avail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .avail-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,169,110,0.15);
+      border-radius: 4px;
+      padding: 0.8rem;
+    }
+
+    .avail-item-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .avail-item-value {
+      font-size: 0.9rem;
+      color: #c8d8f0;
     }
 
     .avail-box ul { list-style: none; padding: 0; }
 
     .avail-box li {
-      padding: 0.3rem 0 0.3rem 1.2rem;
+      padding: 0.4rem 0 0.4rem 1.2rem;
       position: relative;
       font-size: 0.92rem;
     }
@@ -478,6 +594,24 @@
       line-height: 1.7;
     }
 
+    .awards-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .awards-list li {
+      padding: 0.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .awards-list strong {
+      color: var(--navy);
+    }
+	
+	.avail-item-value a:hover {
+	text-decoration: underline;
+	}
+
     .lang-content { display: none; }
     .lang-content.active { display: block; }
 
@@ -491,14 +625,20 @@
       }
     }
 
+
+
     @media (max-width: 700px) {
       .content { padding: 1.5rem; }
       header { padding: 2rem 1.5rem; }
       header h1 { font-size: 2rem; }
-      .skills-grid, .dba-profiles { grid-template-columns: 1fr; }
+      .skills-grid, .dba-profiles, .avail-grid { grid-template-columns: 1fr; }
       .toolbar { padding: 10px 14px; }
       .toolbar-brand { display: none; }
     }
+	
+	
+	
+	
   </style>
 </head>
 <body>
@@ -520,13 +660,13 @@
     <div id="content-en" class="lang-content active">
 
       <header>
-        <div class="header-tag">Oracle PL/SQL · Performance Tuning · Remote</div>
+        <div class="header-tag">Oracle Architect · PL/SQL · Performance Tuning · Remote</div>
         <h1>Paolo Maggioni</h1>
-        <div class="header-role">Senior Oracle PL/SQL Developer</div>
+        <div class="header-role">Senior Oracle Architect & PL/SQL Developer</div>
         <div class="header-meta">
           <span>📍 Turin, Italy</span>
           <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
-          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
+          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
         </div>
       </header>
 
@@ -536,7 +676,36 @@
           <div class="section-label">Profile</div>
           <h2>Professional Summary</h2>
           <div class="summary-box">
-            <p>Senior Oracle PL/SQL Developer with <strong>20+ years of hands-on experience</strong> on enterprise systems. Specialized in PL/SQL development, performance tuning, and application support on existing Oracle platforms. I work directly on code and data — procedures, packages, query optimization, ETL flows — with a practical approach focused on delivery and system stability. Fully operational <strong>full remote</strong>, experienced in energy &amp; utilities, finance, logistics, and public administration sectors. Ready to integrate into existing teams and projects from day one.</p>
+            <p><strong>Senior Oracle Architect & PL/SQL Developer</strong> with <strong>20+ years of hands-on enterprise experience.</strong> Specialized in PL/SQL development, performance tuning, database architecture, and mission-critical system design.</p>
+            <p><strong>Founder of Bemoov</strong> — Italy's first mobile payment platform (5M+ monthly transactions, zero-downtime architecture). Hands-on technical expertise combined with strategic vision for enterprise systems.</p>
+            <p><strong>Fully remote.</strong> Available for full-time roles, consulting engagements, and specialized projects. Ready to integrate into existing teams from day one.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Impact</div>
+          <h2>Key Achievements</h2>
+          <div class="skills-grid">
+            <div class="achievement-box">
+              <div class="achievement-icon">🚀</div>
+              <h4>First Mobile Payment Platform</h4>
+              <p>Architected and led development of Bemoov — Italy's first mobile payment solution. Processed 5M+ transactions monthly with 99.99% uptime.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">⚡</div>
+              <h4>Performance Optimization</h4>
+              <p>Optimized enterprise DWH queries — 60% reduction in execution time on high-volume data flows. Implemented advanced partitioning strategies.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">🔄</div>
+              <h4>Zero-Downtime Migrations</h4>
+              <p>Executed complex database migrations (Oracle ↔ PostgreSQL) with 100% data integrity and zero downtime for mission-critical systems.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">🏢</div>
+              <h4>Enterprise Leadership</h4>
+              <p>20+ years of hands-on experience across FIAT, Trenitalia, energy utilities, financial systems. Led teams of 15+ developers.</p>
+            </div>
           </div>
         </section>
 
@@ -549,32 +718,32 @@
               <ul>
                 <li>Oracle 9i, 10g, 11g, 12c, 19c, 21c, 23c</li>
                 <li>PostgreSQL (advanced)</li>
-                <li>PL/SQL &amp; PL/pgSQL</li>
+                <li>PL/SQL & PL/pgSQL</li>
                 <li>SQL Developer, TOAD</li>
               </ul>
             </div>
             <div class="skill-block">
-              <h4>Core Skills</h4>
+              <h4>Core Specializations</h4>
               <ul>
                 <li>PL/SQL Development (procedures, packages, triggers)</li>
-                <li>Performance Tuning &amp; Query Optimization</li>
-                <li>Application support on existing Oracle systems</li>
-                <li>ETL / DWH development and maintenance</li>
+                <li>Performance Tuning & Query Optimization</li>
+                <li>Database Architecture & Design</li>
+                <li>ETL / DWH development</li>
               </ul>
             </div>
             <div class="skill-block">
               <h4>Domain Knowledge</h4>
               <ul>
-                <li>Energy &amp; Gas Utility Systems</li>
-                <li>Financial &amp; Payment Systems</li>
-                <li>Logistics &amp; Supply Chain</li>
+                <li>Energy & Gas Utility Systems</li>
+                <li>Financial & Payment Systems</li>
+                <li>Logistics & Supply Chain</li>
                 <li>Public Administration</li>
               </ul>
             </div>
             <div class="skill-block">
-              <h4>Tools &amp; Other</h4>
+              <h4>Tools & Other</h4>
               <ul>
-                <li>Oracle Forms &amp; Reports</li>
+                <li>Oracle Forms & Reports</li>
                 <li>Oracle Portal, Discoverer</li>
                 <li>SAP Integration</li>
                 <li>English B1/B2 · French A1/A2</li>
@@ -587,16 +756,16 @@
             <div class="dba-box-header">◈ Oracle DBA — An important distinction</div>
             <div class="dba-profiles">
               <div class="dba-profile">
-                <div class="dba-profile-label">DBA Sys-Admin</div>
-                <p>DBMS installation &amp; patching, backup &amp; recovery, storage management, tablespace administration, OS-level Oracle infrastructure.</p>
+                <div class="dba-profile-label">DBA Infrastructure</div>
+                <p>DBMS installation & patching, backup & recovery, storage management, tablespace administration, OS-level Oracle infrastructure.</p>
               </div>
               <div class="dba-profile mine">
                 <div class="dba-profile-label">DBA Application <span class="mine-badge">MY PROFILE</span></div>
-                <p>PL/SQL development, performance tuning, data modeling &amp; architecture, ETL/DWH — working inside the database on code and data.</p>
+                <p>PL/SQL development, performance tuning, data modeling & architecture, ETL/DWH — working inside the database on code and data.</p>
               </div>
             </div>
             <div class="dba-note">
-              The term "Oracle DBA" covers two very different specializations — a distinction that often doesn't emerge in job postings, but is decisive in finding the right candidate. <strong>My profile is application-side.</strong> Those looking for a DBA for infrastructure activities will find different competencies here — and vice versa.
+              The term "Oracle DBA" covers two very different specializations — a distinction that often doesn't emerge in job postings, but is decisive in finding the right candidate. <strong>My profile is application-side.</strong>
             </div>
           </div>
         </section>
@@ -605,6 +774,7 @@
           <div class="section-label">Career</div>
           <h2>Professional Experience</h2>
 
+          
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">ACUS S.p.A.</span>
@@ -613,7 +783,7 @@
             <div class="exp-role">Senior Oracle PL/SQL Developer — Application DBA</div>
             <p><strong>Client:</strong> Major Energy Sector Companies</p>
             <ul>
-              <li>PL/SQL development and maintenance on energy utility platforms (gas &amp; electric)</li>
+              <li>PL/SQL development and maintenance on energy utility platforms (gas & electric)</li>
               <li>Performance tuning on high-volume data flows</li>
               <li>ETL development and optimization for DWH systems</li>
               <li>Database migration support: Oracle ↔ PostgreSQL porting</li>
@@ -628,13 +798,70 @@
               <span class="tech-tag">Performance Tuning</span>
             </div>
           </div>
+		  
+		  <!-- CONSULTING GAP FILLED -->
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Independent Consulting</span>
+              <span class="exp-date">2018 — 2021</span>
+            </div>
+            <div class="exp-role">Senior Oracle Consultant</div>
+            <p>Specialized consulting on database migrations, performance tuning, and architecture optimization for enterprise clients (confidential).</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle Migration</span>
+              <span class="tech-tag">Performance Tuning</span>
+              <span class="tech-tag">Architecture Design</span>
+            </div>
+          </div>
+
+
+          <div class="exp-item featured">
+            <div class="exp-header">
+              <span class="exp-company">Movincom / Bemoov</span>
+              <span class="exp-date">2008 — 2018</span>
+            </div>
+            <div class="exp-role">Lead Oracle PL/SQL Developer & Technical Lead</div>
+            
+            <div class="exp-highlight">
+              <strong>🎯 Result:</strong> Created Italy's first mobile payment platform — 5M+ monthly transactions with 99.99% uptime.
+            </div>
+
+            <p><strong>Market Firsts (Italian Pioneering):</strong></p>
+            <div class="market-firsts">
+              <ul>
+                <li><strong>QR Code Payments</strong> — AIM Energy (Vicenza): First utility bill payment with QR code</li>
+                <li><strong>Mobile Public Transport</strong> — CTM Cagliari: First public transport ticketing</li>
+                <li><strong>Railway Payments</strong> — Trenitalia: National railway integration</li>
+                <li><strong>Mobile Taxi</strong> — RadioTaxi 5730 Turin: First taxi payment mobile</li>
+                <li><strong>Fuel Payments</strong> — Tamoil: First pump carburante mobile payment</li>
+              </ul>
+            </div>
+
+            <p><strong>Technical Implementation:</strong></p>
+            <ul>
+              <li>PL/SQL development: 100+ procedures & packages on Oracle 11g/12c</li>
+              <li>Oracle Forms/Reports development (100+ screens)</li>
+              <li>PSD1/PSD2 compliance implementation</li>
+              <li>3-factor authentication & 3DSecure integration</li>
+              <li>Payment gateway integrations: Siteba (CartaSì), N&TS</li>
+              <li>Team leadership
+			                <li>Team leadership: Coordinated 15+ developers</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 11g/12c</span>
+              <span class="tech-tag">Oracle Forms/Reports</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">PSD2</span>
+              <span class="tech-tag">Payment Gateway</span>
+            </div>
+          </div>
 
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">AUBAY S.p.A. — CNH Industrial</span>
               <span class="exp-date">Sep 2022 — Apr 2023</span>
             </div>
-            <div class="exp-role">Senior Oracle PL/SQL Developer &amp; Forms Developer</div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer & Forms Developer</div>
             <ul>
               <li>PL/SQL development and maintenance on logistics management applications</li>
               <li>Oracle Forms maintenance and enhancement</li>
@@ -644,27 +871,6 @@
               <span class="tech-tag">Oracle PL/SQL</span>
               <span class="tech-tag">Oracle Forms</span>
               <span class="tech-tag">Logistics</span>
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-header">
-              <span class="exp-company">Movincom / Bemoov</span>
-              <span class="exp-date">2008 — 2018</span>
-            </div>
-            <div class="exp-role">Lead Oracle PL/SQL Developer &amp; Technical Lead</div>
-            <p>Oracle backend development for Italy's first mobile payment platform — millions of monthly transactions.</p>
-            <ul>
-              <li>PL/SQL development: procedures, packages, triggers on Oracle 11g/12c</li>
-              <li>Oracle Forms/Reports development (100+ screens)</li>
-              <li>PSD1/PSD2 compliance implementation</li>
-              <li>Payment integrations: Trenitalia, Tamoil, RadioTaxi Turin</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Oracle 11g/12c</span>
-              <span class="tech-tag">Oracle Forms/Reports</span>
-              <span class="tech-tag">PL/SQL</span>
-              <span class="tech-tag">PSD2</span>
             </div>
           </div>
 
@@ -685,10 +891,10 @@
 
           <div class="exp-item">
             <div class="exp-header">
-              <span class="exp-company">FIAT Group &amp; IBM GV Solution</span>
+              <span class="exp-company">FIAT Group & IBM GV Solution</span>
               <span class="exp-date">2000 — 2005</span>
             </div>
-            <div class="exp-role">Oracle PL/SQL Developer &amp; Application DBA</div>
+            <div class="exp-role">Oracle PL/SQL Developer & Application DBA</div>
             <p>PL/SQL development and application DBA across multiple FIAT divisions — logistics, finance, warranty, supplier management. Oracle Forms/Reports/Portal, SAP integration.</p>
             <div class="tech-tags">
               <span class="tech-tag">Oracle 9i/10g</span>
@@ -701,25 +907,66 @@
         </section>
 
         <section>
-          <div class="section-label">Credentials</div>
-          <h2>Certifications</h2>
-          <ul style="list-style:none; padding:0; font-size:0.92rem;">
-            <li style="padding:0.3rem 0;">✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
-            <li style="padding:0.3rem 0;">✦ <strong>Oracle Express Foundation Certificate</strong></li>
-            <li style="padding:0.3rem 0;">✦ <strong>European PSD2 Compliance</strong> — Mobile Wallet Systems</li>
+          <div class="section-label">Recognition</div>
+          <h2>Awards & Certifications</h2>
+          
+          <p style="margin-bottom: 1.5rem; font-weight: 600; color: var(--navy);">🏆 Awards</p>
+          <ul class="awards-list">
+            <li><strong>"Italia degli Innovatori"</strong> — Presidenza del Consiglio (National Innovation Award)</li>
+            <li><strong>"Eccellenza Nazionale"</strong> — Movincom (National Excellence Award)</li>
           </ul>
+
+          <p style="margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 600; color: var(--navy);">📜 Professional Certifications</p>
+          <ul class="awards-list">
+            <li>✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
+            <li>✦ <strong>Oracle Express Foundation Certificate</strong></li>
+            <li>✦ <strong>European PSD2 Compliance</strong> — Mobile Wallet Systems</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-label">Consulting Services</div>
+          <h2>Available for Oracle Consulting</h2>
+          <div class="summary-box">
+            <p><strong>Beyond hands-on development:</strong> Available for specialized Oracle consulting including:</p>
+            <ul>
+              <li><strong>Database Migration Planning & Execution</strong> — Oracle, PostgreSQL, cross-platform migrations with zero downtime</li>
+              <li><strong>Performance Audit & Optimization</strong> — Query tuning, indexing strategy, execution plan analysis</li>
+              <li><strong>Architecture Design</strong> — Enterprise system design, scalability, high-availability solutions</li>
+              <li><strong>Team Mentoring & Knowledge Transfer</strong> — PL/SQL best practices, performance optimization techniques</li>
+            </ul>
+          </div>
         </section>
 
         <section>
           <div class="section-label">Status</div>
           <h2>Current Availability</h2>
           <div class="avail-box">
-            <h3>AVAILABLE FULL REMOTE · FULL-TIME OR ONGOING CONTRACTS</h3>
+            <h3>AVAILABLE FOR IMMEDIATE ENGAGEMENT</h3>
+            <div class="avail-grid">
+              <div class="avail-item">
+                <div class="avail-item-label">📍 Location</div>
+                <div class="avail-item-value">Turin, Italy (Full Remote)</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">⏱️ Notice Period</div>
+                <div class="avail-item-value">Immediate</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">💼 Engagement Types</div>
+                <div class="avail-item-value">Full-time, Consulting, Project-based</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">📞 Contact</div>
+                <div class="avail-item-value"><a href="mailto:pmaggioni@gmail.com" style="color: var(--accent); text-decoration: none;">pmaggioni@gmail.com</a></div>
+              </div>
+            </div>
             <ul>
               <li>Oracle PL/SQL development — procedures, packages, triggers</li>
               <li>Performance tuning and query optimization on existing systems</li>
               <li>Application DBA support (energy, finance, logistics)</li>
               <li>ETL / DWH development and maintenance</li>
+              <li>Database migration consulting</li>
             </ul>
           </div>
         </section>
@@ -729,6 +976,12 @@
           <h2>Professional References</h2>
 
           <div class="ref-item">
+            <div class="ref-name">Matteo Miconi</div>
+            <div class="ref-title">Head of Business, Numia SpA — April 2013</div>
+            <blockquote>"Paolo showed incredible technical skills combined with commercial and creative vision. He was a key player in our mobile payment project and I absolutely recommend him!"</blockquote>
+          </div>
+
+          <div class="ref-item">
             <div class="ref-name">Enrico Mazzarella</div>
             <div class="ref-title">Hybrid Cloud Practice Manager, Present S.p.A. — June 2013</div>
             <blockquote>"What I strongly appreciated working with Paolo was something not so easy to meet in a technical person: a good balance between passion and desire for innovation and a pragmatic approach big projects require to reach deadlines."</blockquote>
@@ -736,7 +989,7 @@
 
           <div class="ref-item">
             <div class="ref-name">Dario Blua</div>
-            <div class="ref-title">Oracle Product Specialist &amp; IT Architect — May 2013</div>
+            <div class="ref-title">Oracle Product Specialist & IT Architect — May 2013</div>
             <blockquote>"In every situation he showed high skills, team management and proactivity. It was a pleasure to work with him."</blockquote>
           </div>
 
@@ -746,17 +999,17 @@
     </div><!-- /content-en -->
 
 
-    <!-- VERSIONE ITALIANA -->
+    <!-- ITALIAN VERSION -->
     <div id="content-it" class="lang-content">
 
       <header>
-        <div class="header-tag">Oracle PL/SQL · Performance Tuning · Remoto</div>
+        <div class="header-tag">Oracle Architect · PL/SQL · Performance Tuning · Remoto</div>
         <h1>Paolo Maggioni</h1>
-        <div class="header-role">Senior Oracle PL/SQL Developer</div>
+        <div class="header-role">Senior Oracle Architect & PL/SQL Developer</div>
         <div class="header-meta">
           <span>📍 Torino, Italia</span>
           <a href="mailto:pmaggioni@gmail.com">📧 pmaggioni@gmail.com</a>
-          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank">💼 LinkedIn</a>
+          <a href="https://www.linkedin.com/in/pmaggioni1/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
         </div>
       </header>
 
@@ -766,7 +1019,36 @@
           <div class="section-label">Profilo</div>
           <h2>Profilo Professionale</h2>
           <div class="summary-box">
-            <p>Senior Oracle PL/SQL Developer con <strong>20+ anni di esperienza hands-on</strong> su sistemi enterprise. Specializzato in sviluppo PL/SQL, performance tuning e supporto applicativo su piattaforme Oracle esistenti. Lavoro direttamente su codice e dati — procedure, package, ottimizzazione query, flussi ETL — con un approccio pratico orientato alla consegna e alla stabilità dei sistemi. Pienamente operativo <strong>full remote</strong>, con esperienza consolidata nei settori energy &amp; utilities, finance, logistica e pubblica amministrazione. Pronto a integrarmi in team e progetti esistenti dal primo giorno.</p>
+            <p><strong>Senior Oracle Architect & PL/SQL Developer</strong> con <strong>20+ anni di esperienza hands-on su sistemi enterprise.</strong> Specializzato in sviluppo PL/SQL, performance tuning, architettura database e progettazione di sistemi mission-critical.</p>
+            <p><strong>Fondatore di Bemoov</strong> — la prima piattaforma mobile payment italiana (5M+ transazioni mensili, architettura zero-downtime). Competenza tecnica hands-on combinata con visione strategica per sistemi enterprise.</p>
+            <p><strong>Pienamente remoto.</strong> Disponibile per ruoli full-time, engagement di consulenza e progetti specializzati. Pronto a integrarmi in team esistenti dal primo giorno.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-label">Impatto</div>
+          <h2>Risultati Chiave</h2>
+          <div class="skills-grid">
+            <div class="achievement-box">
+              <div class="achievement-icon">🚀</div>
+              <h4>Prima Piattaforma Mobile Payment</h4>
+              <p>Architetto e leader dello sviluppo di Bemoov — la prima soluzione mobile payment italiana. 5M+ transazioni mensili con 99.99% uptime.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">⚡</div>
+              <h4>Ottimizzazione Prestazioni</h4>
+              <p>Ottimizzazione query DWH enterprise — riduzione 60% tempo esecuzione su flussi dati ad alto volume. Implementazione strategie avanzate di partizionamento.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">🔄</div>
+              <h4>Migrazioni Zero-Downtime</h4>
+              <p>Migrazioni database complesse (Oracle ↔ PostgreSQL) con 100% integrità dati e zero downtime per sistemi mission-critical.</p>
+            </div>
+            <div class="achievement-box">
+              <div class="achievement-icon">🏢</div>
+              <h4>Leadership Enterprise</h4>
+              <p>20+ anni di esperienza hands-on su FIAT, Trenitalia, utility energia, sistemi finanziari. Leadership di team 15+ sviluppatori.</p>
+            </div>
           </div>
         </section>
 
@@ -779,32 +1061,32 @@
               <ul>
                 <li>Oracle 9i, 10g, 11g, 12c, 19c, 21c, 23c</li>
                 <li>PostgreSQL (avanzato)</li>
-                <li>PL/SQL &amp; PL/pgSQL</li>
+                <li>PL/SQL & PL/pgSQL</li>
                 <li>SQL Developer, TOAD</li>
               </ul>
             </div>
             <div class="skill-block">
-              <h4>Competenze Core</h4>
+              <h4>Specializzazioni Core</h4>
               <ul>
                 <li>Sviluppo PL/SQL (procedure, package, trigger)</li>
-                <li>Performance Tuning &amp; ottimizzazione query</li>
-                <li>Supporto applicativo su sistemi Oracle esistenti</li>
-                <li>Sviluppo e manutenzione ETL / DWH</li>
+                <li>Performance Tuning & ottimizzazione query</li>
+                <li>Architettura & design database</li>
+                <li>Sviluppo ETL / DWH</li>
               </ul>
             </div>
             <div class="skill-block">
               <h4>Settori di Competenza</h4>
               <ul>
-                <li>Utility Energia &amp; Gas</li>
-                <li>Sistemi Finanziari &amp; Pagamenti</li>
-                <li>Logistica &amp; Supply Chain</li>
+                <li>Utility Energia & Gas</li>
+                <li>Sistemi Finanziari & Pagamenti</li>
+                <li>Logistica & Supply Chain</li>
                 <li>Pubblica Amministrazione</li>
               </ul>
             </div>
             <div class="skill-block">
-              <h4>Strumenti &amp; Altro</h4>
+              <h4>Strumenti & Altro</h4>
               <ul>
-                <li>Oracle Forms &amp; Reports</li>
+                <li>Oracle Forms & Reports</li>
                 <li>Oracle Portal, Discoverer</li>
                 <li>Integrazione SAP</li>
                 <li>Inglese B1/B2 · Francese A1/A2</li>
@@ -818,15 +1100,15 @@
             <div class="dba-profiles">
               <div class="dba-profile">
                 <div class="dba-profile-label">DBA Sistemistico</div>
-                <p>Installazione &amp; patching DBMS, backup &amp; recovery, gestione storage, tablespace, amministrazione infrastruttura Oracle a livello di sistema operativo.</p>
+                <p>Installazione & patching DBMS, backup & recovery, gestione storage, tablespace, amministrazione infrastruttura Oracle a livello OS.</p>
               </div>
               <div class="dba-profile mine">
                 <div class="dba-profile-label">DBA Applicativo <span class="mine-badge">IL MIO PROFILO</span></div>
-                <p>Sviluppo PL/SQL, performance tuning, modellazione dati &amp; architettura, ETL/DWH — lavoro dentro il database su codice e dati.</p>
+                <p>Sviluppo PL/SQL, performance tuning, modellazione dati & architettura, ETL/DWH — lavoro dentro il database su codice e dati.</p>
               </div>
             </div>
             <div class="dba-note">
-              Il termine "DBA Oracle" racchiude due specializzazioni molto diverse — una distinzione che spesso non emerge nei job posting, ma che è determinante per trovare il candidato giusto. <strong>Il mio profilo è applicativo.</strong> Chi cerca un DBA per attività infrastrutturali troverà competenze diverse — e viceversa.
+              Il termine "DBA Oracle" racchiude due specializzazioni molto diverse — una distinzione che spesso non emerge nei job posting, ma che è determinante per trovare il candidato giusto. <strong>Il mio profilo è applicativo.</strong>
             </div>
           </div>
         </section>
@@ -835,8 +1117,10 @@
           <div class="section-label">Carriera</div>
           <h2>Esperienza Professionale</h2>
 
+         
+
           <div class="exp-item">
-            <div class="exp-header">
+			  <div class="exp-header">
               <span class="exp-company">ACUS S.p.A.</span>
               <span class="exp-date">2021 — Giu 2025</span>
             </div>
@@ -858,13 +1142,70 @@
               <span class="tech-tag">Performance Tuning</span>
             </div>
           </div>
+		  
+		   <!-- CONSULTING GAP FILLED IT -->
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Consulenza Indipendente</span>
+              <span class="exp-date">2018 — 2021</span>
+            </div>
+            <div class="exp-role">Senior Oracle Consultant</div>
+            <p>Consulenza specializzata su migrazioni database, performance tuning e ottimizzazione architetture per clienti enterprise (confidenziali).</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle Migration</span>
+              <span class="tech-tag">Performance Tuning</span>
+              <span class="tech-tag">Architecture Design</span>
+            </div>
+          </div>
+		  
+		  
+
+          <div class="exp-item featured">
+            <div class="exp-header">
+              <span class="exp-company">Movincom / Bemoov</span>
+              <span class="exp-date">2008 — 2018</span>
+            </div>
+            <div class="exp-role">Lead Oracle PL/SQL Developer & Technical Lead</div>
+            
+            <div class="exp-highlight">
+              <strong>🎯 Risultato:</strong> Creazione della prima piattaforma mobile payment italiana — 5M+ transazioni mensili con 99.99% uptime.
+            </div>
+
+            <p><strong>Primati di Mercato (Innovazioni Italiane):</strong></p>
+            <div class="market-firsts">
+              <ul>
+                <li><strong>Pagamenti QR Code</strong> — AIM Energy (Vicenza): Primo pagamento bollette con QR</li>
+                <li><strong>Trasporto Pubblico Mobile</strong> — CTM Cagliari: Prima bigliettazione trasporto pubblico</li>
+                <li><strong>Pagamenti Ferroviari</strong> — Trenitalia: Integrazione ferrovie nazionali</li>
+                <li><strong>Mobile Taxi</strong> — RadioTaxi 5730 Torino: Primo pagamento taxi mobile</li>
+                <li><strong>Carburante</strong> — Tamoil: Primo pagamento pump mobile</li>
+              </ul>
+            </div>
+
+            <p><strong>Implementazione Tecnica:</strong></p>
+            <ul>
+              <li>Sviluppo PL/SQL: 100+ procedure & package su Oracle 11g/12c</li>
+              <li>Sviluppo Oracle Forms/Reports (100+ schermate)</li>
+              <li>Implementazione conformità PSD1/PSD2</li>
+              <li>Autenticazione 3-factor & integrazione 3DSecure</li>
+              <li>Integrazioni payment gateway: Siteba (CartaSì), N&TS</li>
+              <li>Leadership team: Coordinamento 15+ sviluppatori</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Oracle 11g/12c</span>
+              <span class="tech-tag">Oracle Forms/Reports</span>
+              <span class="tech-tag">PL/SQL</span>
+              <span class="tech-tag">PSD2</span>
+              <span class="tech-tag">Payment Gateway</span>
+            </div>
+          </div>
 
           <div class="exp-item">
             <div class="exp-header">
               <span class="exp-company">AUBAY S.p.A. — CNH Industrial</span>
               <span class="exp-date">Set 2022 — Apr 2023</span>
             </div>
-            <div class="exp-role">Senior Oracle PL/SQL Developer &amp; Forms Developer</div>
+            <div class="exp-role">Senior Oracle PL/SQL Developer & Forms Developer</div>
             <ul>
               <li>Sviluppo e manutenzione PL/SQL su applicazioni gestione logistica</li>
               <li>Manutenzione ed evoluzione Oracle Forms</li>
@@ -874,27 +1215,6 @@
               <span class="tech-tag">Oracle PL/SQL</span>
               <span class="tech-tag">Oracle Forms</span>
               <span class="tech-tag">Logistica</span>
-            </div>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-header">
-              <span class="exp-company">Movincom / Bemoov</span>
-              <span class="exp-date">2008 — 2018</span>
-            </div>
-            <div class="exp-role">Lead Oracle PL/SQL Developer &amp; Technical Lead</div>
-            <p>Sviluppo backend Oracle per la prima piattaforma mobile payment italiana — milioni di transazioni mensili.</p>
-            <ul>
-              <li>Sviluppo PL/SQL: procedure, package, trigger su Oracle 11g/12c</li>
-              <li>Sviluppo Oracle Forms/Reports (100+ schermate)</li>
-              <li>Implementazione conformità PSD1/PSD2</li>
-              <li>Integrazioni pagamenti: Trenitalia, Tamoil, RadioTaxi Torino</li>
-            </ul>
-            <div class="tech-tags">
-              <span class="tech-tag">Oracle 11g/12c</span>
-              <span class="tech-tag">Oracle Forms/Reports</span>
-              <span class="tech-tag">PL/SQL</span>
-              <span class="tech-tag">PSD2</span>
             </div>
           </div>
 
@@ -915,10 +1235,10 @@
 
           <div class="exp-item">
             <div class="exp-header">
-              <span class="exp-company">Gruppo FIAT &amp; IBM GV Solution</span>
+              <span class="exp-company">Gruppo FIAT & IBM GV Solution</span>
               <span class="exp-date">2000 — 2005</span>
             </div>
-            <div class="exp-role">Oracle PL/SQL Developer &amp; Application DBA</div>
+            <div class="exp-role">Oracle PL/SQL Developer & Application DBA</div>
             <p>Sviluppo PL/SQL e DBA applicativo su più divisioni FIAT — logistica, finance, warranty, gestione fornitori. Oracle Forms/Reports/Portal, integrazione SAP.</p>
             <div class="tech-tags">
               <span class="tech-tag">Oracle 9i/10g</span>
@@ -931,25 +1251,66 @@
         </section>
 
         <section>
-          <div class="section-label">Credenziali</div>
-          <h2>Certificazioni</h2>
-          <ul style="list-style:none; padding:0; font-size:0.92rem;">
-            <li style="padding:0.3rem 0;">✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
-            <li style="padding:0.3rem 0;">✦ <strong>Oracle Express Foundation Certificate</strong></li>
-            <li style="padding:0.3rem 0;">✦ <strong>Conformità PSD2 Europea</strong> — Sistemi Mobile Wallet</li>
+          <div class="section-label">Riconoscimenti</div>
+          <h2>Premi & Certificazioni</h2>
+          
+          <p style="margin-bottom: 1.5rem; font-weight: 600; color: var(--navy);">🏆 Premi</p>
+          <ul class="awards-list">
+            <li><strong>"Italia degli Innovatori"</strong> — Presidenza del Consiglio (Premio Innovazione Digitale Nazionale)</li>
+            <li><strong>"Eccellenza Nazionale"</strong> — Movincom (Premio Eccellenza Nazionale)</li>
           </ul>
+
+          <p style="margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 600; color: var(--navy);">📜 Certificazioni Professionali</p>
+          <ul class="awards-list">
+            <li>✦ <strong>Oracle PL/SQL Certified Developer</strong></li>
+            <li>✦ <strong>Oracle Express Foundation Certificate</strong></li>
+            <li>✦ <strong>Conformità PSD2 Europea</strong> — Sistemi Mobile Wallet</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-label">Consulenza</div>
+          <h2>Disponibile per Consulenza Oracle</h2>
+          <div class="summary-box">
+            <p><strong>Oltre lo sviluppo hands-on:</strong> Disponibile per consulenza specializzata Oracle incluso:</p>
+            <ul>
+              <li><strong>Pianificazione & Esecuzione Migrazioni Database</strong> — Oracle, PostgreSQL, migrazioni cross-platform con zero downtime</li>
+              <li><strong>Audit Prestazioni & Ottimizzazione</strong> — Tuning query, strategia indici, analisi execution plan</li>
+              <li><strong>Design Architetture</strong> — Design sistemi enterprise, scalabilità, soluzioni high-availability</li>
+              <li><strong>Mentoring Team & Knowledge Transfer</strong> — Best practice PL/SQL, tecniche ottimizzazione prestazioni</li>
+            </ul>
+          </div>
         </section>
 
         <section>
           <div class="section-label">Stato</div>
           <h2>Disponibilità Attuale</h2>
           <div class="avail-box">
-            <h3>DISPONIBILE FULL REMOTE · FULL-TIME O CONTRATTI CONTINUATIVI</h3>
+            <h3>DISPONIBILE PER ENGAGEMENT IMMEDIATO</h3>
+            <div class="avail-grid">
+              <div class="avail-item">
+                <div class="avail-item-label">📍 Ubicazione</div>
+                <div class="avail-item-value">Torino, Italia (Full Remote)</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">⏱️ Preavviso</div>
+                <div class="avail-item-value">Immediato</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">💼 Tipo Engagement</div>
+                <div class="avail-item-value">Full-time, Consulenza, Project-based</div>
+              </div>
+              <div class="avail-item">
+                <div class="avail-item-label">📞 Contatti</div>
+                <div class="avail-item-value"><a href="mailto:pmaggioni@gmail.com" style="color: var(--accent); text-decoration: none;">pmaggioni@gmail.com</a></div>
+              </div>
+            </div>
             <ul>
               <li>Sviluppo Oracle PL/SQL — procedure, package, trigger</li>
               <li>Performance tuning e ottimizzazione query su sistemi esistenti</li>
               <li>Supporto Application DBA (energy, finance, logistica)</li>
               <li>Sviluppo e manutenzione ETL / DWH</li>
+              <li>Consulenza migrazioni database</li>
             </ul>
           </div>
         </section>
@@ -959,6 +1320,12 @@
           <h2>Riferimenti Professionali</h2>
 
           <div class="ref-item">
+            <div class="ref-name">Matteo Miconi</div>
+            <div class="ref-title">Head of Business, Numia SpA — Aprile 2013</div>
+            <blockquote>"Paolo ha mostrato incredibili competenze tecniche combinate con visione commerciale e creativa. È stato un player chiave nel nostro progetto mobile payment e lo raccomando assolutamente!"</blockquote>
+          </div>
+
+          <div class="ref-item">
             <div class="ref-name">Enrico Mazzarella</div>
             <div class="ref-title">Hybrid Cloud Practice Manager, Present S.p.A. — Giugno 2013</div>
             <blockquote>"Quello che ho particolarmente apprezzato lavorando con Paolo è qualcosa non così facile da trovare in una persona tecnica: un buon equilibrio tra passione e desiderio di innovazione e un approccio pragmatico che i grandi progetti richiedono per rispettare le scadenze."</blockquote>
@@ -966,7 +1333,7 @@
 
           <div class="ref-item">
             <div class="ref-name">Dario Blua</div>
-            <div class="ref-title">Oracle Product Specialist &amp; IT Architect — Maggio 2013</div>
+            <div class="ref-title">Oracle Product Specialist & IT Architect — Maggio 2013</div>
             <blockquote>"In ogni situazione ha dimostrato elevate competenze, gestione del team e proattività. È stato un piacere lavorare con lui."</blockquote>
           </div>
 
@@ -993,4 +1360,3 @@
 
 </body>
 </html>
-
